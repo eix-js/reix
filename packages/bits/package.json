@@ -1,8 +1,13 @@
 {
-    "name": "bits",
+    "name": "@reix/bits",
     "version": "0.0.1",
     "description": "Bit related utilities for the eix game engine",
-    "scripts": {},
+    "main": "dist/bundle.cjs.js",
+    "module": "dist/bundle.esm.js",
+    "typings": "./dist/index.d.ts",
+    "publishConfig": {
+        "access": "public"
+    },
     "keywords": [
         "bits",
         "reix",
@@ -12,7 +17,6 @@
     "author": "Mateiadrielrafael <rafaeladriel11@gmail.com>",
     "homepage": "https://github.com/Mateiadrielrafael/reix",
     "license": "MIT",
-    "main": "dist/bundle.cjs.js",
     "files": [
         "dist"
     ],
