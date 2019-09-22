@@ -5,7 +5,7 @@ import { terser } from 'rollup-plugin-terser'
 
 const dist = './dist'
 const dev = Boolean(process.env.ROLLUP_WATCH)
-const babelConfig = reuire('./babel.config.js')
+const babelConfig = require('./babel.config.js')
 
 export default {
     input: './src/index.ts',
