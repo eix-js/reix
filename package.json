@@ -20,7 +20,10 @@
         "prebuild": "lerna exec rimraf dist",
         "build": "lerna exec -- rollup -c ../../rollup.config.js",
         "build:watch": "lerna exec --parallel -- rollup -c ../../rollup.config.js -w",
-        "test": "lerna exec -- jest -c=../../jest.config.js"
+        "test:all": "lerna exec -- jest -c=../../jest.config.js",
+        "test:changed": "lerna exec --since master -- test -c=../../jest.config.js",
+        "predeploy": "npm run build",
+        "deploy": "lerna publish"
     },
     "dependencies": {}
 }
