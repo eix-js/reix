@@ -1,0 +1,26 @@
+{
+    "name": "bits",
+    "version": "0.0.1",
+    "description": "Bit related utilities for the eix game engine",
+    "scripts": {},
+    "keywords": [
+        "bits",
+        "reix",
+        "typescript",
+        "bit-field"
+    ],
+    "author": "Mateiadrielrafael <rafaeladriel11@gmail.com>",
+    "homepage": "https://github.com/Mateiadrielrafael/reix",
+    "license": "MIT",
+    "main": "dist/bundle.cjs.js",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mateiadrielrafael/reix.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Mateiadrielrafael/reix/issues"
+    }
+}
