@@ -1,0 +1,33 @@
+{
+    "name": "@reix/dirty",
+    "version": "0.0.1",
+    "description": "Base operations for the reix game engine",
+    "main": "dist/bundle.cjs.js",
+    "module": "dist/bundle.esm.js",
+    "typings": "./dist/index.d.ts",
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "dirty",
+        "reix",
+        "typescript",
+        "operation"
+    ],
+    "author": "Mateiadrielrafael <rafaeladriel11@gmail.com>",
+    "homepage": "https://github.com/Mateiadrielrafael/reix",
+    "license": "MIT",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mateiadrielrafael/reix.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Mateiadrielrafael/reix/issues"
+    },
+    "dependencies": {
+        "@reix/bits": "^0.1.1"
+    }
+}
