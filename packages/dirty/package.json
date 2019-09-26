@@ -1,6 +1,6 @@
 {
     "name": "@reix/dirty",
-    "version": "0.0.1",
+    "version": "0.1.0-alpha.0",
     "description": "Generalised computation graphs for the reix game engine",
     "main": "dist/bundle.cjs.js",
     "module": "dist/bundle.esm.js",
@@ -28,7 +28,7 @@
         "url": "https://github.com/Mateiadrielrafael/reix/issues"
     },
     "dependencies": {
-        "@reix/bits": "^0.1.1",
+        "@reix/bits": "^0.1.2",
         "tslib": "^1.10.0"
     }
 }
