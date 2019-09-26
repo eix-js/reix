@@ -4,5 +4,5 @@ Yet another typescript game engine
 
 Packages:
 
--   [Bits](./packages/bits/Readme.md)
--   [Dirty](./packages/dirty/Readme.md)
+-   [Bits](./packages/bits/README.md)
+-   [Dirty](./packages/dirty/README.md)
