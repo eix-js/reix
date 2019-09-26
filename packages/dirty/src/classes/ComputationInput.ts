@@ -1,11 +1,11 @@
-import { IOperation } from '../types/IOperation'
+import { IComputationNode } from '../types/IComputation'
 import { BitFieldEmitter } from '@reix/bits'
-import { operationEvents } from '../constants/operationEvents'
+import { computationEvents } from '../constants/computationEvents'
 
 /**
  * Input node for computation graphs
  */
-export class OperationInputNode<T> implements IOperation<T> {
+export class ComputationInputNode<T> implements IComputationNode<T> {
     /**
      * Only allow calling methods if this is true
      */
@@ -38,7 +38,7 @@ export class OperationInputNode<T> implements IOperation<T> {
             return this
         }
 
-        this.emitter.emit(operationEvents.disposed)
+        this.emitter.emit(computationEvents.disposed)
         this.active = false
 
         return this
@@ -57,7 +57,7 @@ export class OperationInputNode<T> implements IOperation<T> {
             return this
         }
 
-        this.emitter.emit(operationEvents.changed)
+        this.emitter.emit(computationEvents.changed)
         this.value = newValue
 
         return this

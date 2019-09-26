@@ -4,9 +4,11 @@ import babel from 'rollup-plugin-babel'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import dts from 'rollup-plugin-dts'
 import { terser } from 'rollup-plugin-terser'
+import { resolve } from 'path'
 
 // @ts-ignore
-import npmConfig from './package.json'
+const npmConfig = require(resolve(process.cwd(), `package.json`))
+const external = Object.keys(npmConfig.dependencies || {})
 
 const dist = './dist'
 const dev = Boolean(process.env.ROLLUP_WATCH)
@@ -26,7 +28,7 @@ export default [
                 format: 'esm'
             }
         ],
-        external: [...Object.keys(npmConfig.dependencies || {})],
+        external,
         plugins: [
             nodeResolve({
                 extensions: ['.ts']

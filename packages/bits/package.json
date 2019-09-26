@@ -26,5 +26,8 @@
     },
     "bugs": {
         "url": "https://github.com/Mateiadrielrafael/reix/issues"
+    },
+    "dependencies": {
+        "tslib": "^1.10.0"
     }
 }

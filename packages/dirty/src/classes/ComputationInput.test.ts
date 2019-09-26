@@ -1,11 +1,11 @@
-import { OperationInputNode } from './OperationInput'
-import { operationEvents } from '../constants/operationEvents'
+import { ComputationInputNode } from './ComputationInput'
+import { computationEvents } from '../constants/computationEvents'
 
-describe('The OperationInpput instance', () => {
-    let input: OperationInputNode<number>
+describe('The ComputationInput instance', () => {
+    let input: ComputationInputNode<number>
 
     beforeEach(() => {
-        input = new OperationInputNode(7)
+        input = new ComputationInputNode(7)
     })
 
     describe('The get method', () => {
@@ -29,8 +29,8 @@ describe('The OperationInpput instance', () => {
     describe('The set method', () => {
         test('calling set(a) should get to the same state as calling set(a) and then set(b)', () => {
             // arrange
-            const input1 = new OperationInputNode(0)
-            const input2 = new OperationInputNode(0)
+            const input1 = new ComputationInputNode(0)
+            const input2 = new ComputationInputNode(0)
 
             const random = Math.random()
 
@@ -45,7 +45,7 @@ describe('The OperationInpput instance', () => {
         test('should emit a changed event', () => {
             // arrange
             const mock = jest.fn()
-            input.emitter.on(operationEvents.changed, mock)
+            input.emitter.on(computationEvents.changed, mock)
 
             // act
             input.set(Math.random())
@@ -57,7 +57,7 @@ describe('The OperationInpput instance', () => {
         test('should ignore the current value', () => {
             // arrange
             const mock = jest.fn()
-            input.emitter.on(operationEvents.changed, mock)
+            input.emitter.on(computationEvents.changed, mock)
 
             const random = Math.random()
 
@@ -73,7 +73,7 @@ describe('The OperationInpput instance', () => {
         test('should emit the dispose event', () => {
             // arrange
             const mock = jest.fn()
-            input.emitter.on(operationEvents.disposed, mock)
+            input.emitter.on(computationEvents.disposed, mock)
 
             // act
             input.dispose()
@@ -85,7 +85,7 @@ describe('The OperationInpput instance', () => {
         test("should do nothing if the node isn't active anymroe", () => {
             // arrange
             const mock = jest.fn()
-            input.emitter.on(operationEvents.disposed, mock)
+            input.emitter.on(computationEvents.disposed, mock)
 
             // act
             input.dispose().dispose()

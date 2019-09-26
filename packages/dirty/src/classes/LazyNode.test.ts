@@ -1,10 +1,10 @@
-import { OperationInputNode } from './OperationInput'
+import { ComputationInputNode } from './ComputationInput'
 import { LazyComputationNode } from './LazyNode'
-import { operationEvents } from '../constants/operationEvents'
+import { computationEvents } from '../constants/computationEvents'
 
 // helpers
 const createIdentityNode = (transform = (a: number) => a) => {
-    const input = new OperationInputNode(0)
+    const input = new ComputationInputNode(0)
     const output = new LazyComputationNode(
         {
             input
@@ -21,7 +21,7 @@ describe('The LazyNode instance', () => {
         const { input, output } = createIdentityNode()
 
         const mock = jest.fn()
-        output.emitter.on(operationEvents.updated, mock)
+        output.emitter.on(computationEvents.updated, mock)
 
         // act
         input.set(7)
@@ -35,7 +35,7 @@ describe('The LazyNode instance', () => {
         const { input, output } = createIdentityNode()
 
         const mock = jest.fn()
-        output.emitter.on(operationEvents.updated, mock)
+        output.emitter.on(computationEvents.updated, mock)
 
         // act
         input.set(7)
@@ -50,7 +50,7 @@ describe('The LazyNode instance', () => {
         const { input, output } = createIdentityNode()
 
         const mock = jest.fn()
-        output.emitter.on(operationEvents.updated, mock)
+        output.emitter.on(computationEvents.updated, mock)
 
         // act
         input.set(7)
@@ -59,54 +59,5 @@ describe('The LazyNode instance', () => {
 
         // assert
         expect(mock).toBeCalledTimes(1)
-    })
-
-    test("should still emit update even if the data didn't change", () => {
-        // arrange
-        const { output } = createIdentityNode(() => 7)
-
-        const mock = jest.fn()
-        output.emitter.on(operationEvents.updated, mock)
-
-        // act
-        output.triggerUpdate().triggerUpdate()
-
-        // assert
-        expect(mock).toBeCalledTimes(2)
-    })
-
-    test("shoud not emit changed if the data didn't change", () => {
-        // arrange
-        const { output } = createIdentityNode(() => 7)
-
-        const mock = jest.fn()
-        output.emitter.on(operationEvents.changed, mock)
-
-        // act
-        output.triggerUpdate().triggerUpdate()
-
-        // assert
-        expect(mock).toBeCalledTimes(1)
-    })
-
-    test('should not emit events more then 1 time per update', () => {
-        // arrange
-        const { output } = createIdentityNode(() => 7)
-
-        const mockUpdated = jest.fn()
-        const mockChanged = jest.fn()
-        const mockBoth = jest.fn()
-
-        output.emitter.on(operationEvents.changed, mockChanged)
-        output.emitter.on(operationEvents.updated, mockUpdated)
-        output.emitter.on(operationEvents.changedAndUpdated, mockBoth)
-
-        // act
-        output.triggerUpdate()
-
-        // assert
-        expect(mockUpdated).toBeCalledTimes(1)
-        expect(mockChanged).toBeCalledTimes(1)
-        expect(mockBoth).toBeCalledTimes(1)
     })
 })
