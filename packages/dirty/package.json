@@ -30,5 +30,6 @@
     "dependencies": {
         "@reix/bits": "^0.1.2",
         "tslib": "^1.10.0"
-    }
+    },
+    "gitHead": "8897a579839978226c30495a0825cfc11e5d02de"
 }

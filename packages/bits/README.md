@@ -17,7 +17,7 @@ const handler = (data: number, code: number) => console.log('fired')
 
 emitter.on(0b011, handler)
 
-// second param can be any number you want to pass to the handlers, i just like the digit 7:)
+// second param can be any number you want to pass to the handlers, I just like the digit 7:)
 emitter.emit(0b001, 7) // fired
 emitter.emit(0b100, 7) // nothing...
 emitter.emit(0b101, 7) // fired

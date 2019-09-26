@@ -4,7 +4,7 @@
 
 ## Why is this package called "dirty"?
 
-Because all computation nodes exposed by this package have a `state` property. That property is set to true if the node is dirty (It needs an update) The moment the updates are performed depends on the type of node used)
+Because all computation nodes exposed by this package have a `state` property. That property is set to true if the node is dirty (It needs an update). The moment the updates are performed depends on the type of node used.
 
 ## Usage
 
