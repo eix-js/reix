@@ -1,5 +1,5 @@
 import { IStatefullComputationNode } from '../types/IComputation'
-import { computationFlags } from '../../src'
+import { computationFlags } from '../constants/computationFlags'
 
 export class StatefullComputationNode implements IStatefullComputationNode {
     /**

@@ -1,2 +1,2 @@
-// to make lerna bootstrap work
-export * from './dist'
+// for lerna bootstrap
+export * from './src'
