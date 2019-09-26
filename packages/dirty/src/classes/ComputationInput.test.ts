@@ -3,9 +3,11 @@ import { computationEvents } from '../constants/computationEvents'
 
 describe('The ComputationInput instance', () => {
     let input: ComputationInputNode<number>
+    let mock: ReturnType<typeof jest.fn>
 
     beforeEach(() => {
         input = new ComputationInputNode(7)
+        mock = jest.fn()
     })
 
     describe('The get method', () => {
@@ -70,9 +72,8 @@ describe('The ComputationInput instance', () => {
     })
 
     describe('The dispose method', () => {
-        test('should emit the dispose event', () => {
+        test.only('should emit the dispose event', () => {
             // arrange
-            const mock = jest.fn()
             input.emitter.on(computationEvents.disposed, mock)
 
             // act

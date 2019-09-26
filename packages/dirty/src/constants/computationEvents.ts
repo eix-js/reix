@@ -1,6 +1,6 @@
-export enum computationEvents {
-    changed = 1,
-    disposed = 2,
-    changedAndUpdated = 3,
-    updated = 4
+export const enum computationEvents {
+    changed = 0b001,
+    updated = 0b010,
+    changedAndUpdated = 0b011,
+    disposed = 0b100
 }

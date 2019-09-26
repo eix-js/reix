@@ -3,11 +3,12 @@
 import babel from 'rollup-plugin-babel'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import dts from 'rollup-plugin-dts'
+import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
 import { resolve } from 'path'
 
-// @ts-ignore
-const npmConfig = require(resolve(process.cwd(), `package.json`))
+const packageDirectory = process.cwd()
+const npmConfig = require(resolve(packageDirectory, `package.json`))
 const external = Object.keys(npmConfig.dependencies || {})
 
 const dist = './dist'
@@ -32,6 +33,9 @@ export default [
         plugins: [
             nodeResolve({
                 extensions: ['.ts']
+            }),
+            typescript({
+                tsconfig: resolve(__dirname, 'tsconfig.json')
             }),
             babel({
                 exclude: 'node_modules/**',

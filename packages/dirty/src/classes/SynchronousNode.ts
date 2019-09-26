@@ -24,7 +24,8 @@ export class SynchronousComputationNode<T, K extends InputMap>
             })
         }
 
-        this.state |= computationFlags.dirty
+        // trigger initial update
+        this.triggerUpdate()
     }
 
     /**

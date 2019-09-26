@@ -9,18 +9,23 @@ const createIdentityNode = (transform = (a: number) => a) => {
         {
             input
         },
-        ({ input }) => transform(input.get())
+        ({ input }) => transform(input)
     )
 
     return { input, output }
 }
 
 describe('The LazyNode instance', () => {
+    let mock: ReturnType<typeof jest.fn>
+
+    beforeEach(() => {
+        mock = jest.fn()
+    })
+
     test('should not update if the data isnt requested', () => {
         // arrange
         const { input, output } = createIdentityNode()
 
-        const mock = jest.fn()
         output.emitter.on(computationEvents.updated, mock)
 
         // act
@@ -34,7 +39,6 @@ describe('The LazyNode instance', () => {
         // arrange
         const { input, output } = createIdentityNode()
 
-        const mock = jest.fn()
         output.emitter.on(computationEvents.updated, mock)
 
         // act
@@ -49,7 +53,6 @@ describe('The LazyNode instance', () => {
         // arrange
         const { input, output } = createIdentityNode()
 
-        const mock = jest.fn()
         output.emitter.on(computationEvents.updated, mock)
 
         // act

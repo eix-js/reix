@@ -2,9 +2,9 @@
     "name": "reix",
     "private": true,
     "devDependencies": {
-        "@babel/core": "^7.6.0",
+        "@babel/core": "^7.6.2",
         "@babel/plugin-proposal-class-properties": "^7.5.5",
-        "@babel/preset-typescript": "^7.6.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
         "@types/jest": "^24.0.18",
         "cross-env": "^6.0.0",
         "jest": "^24.9.0",
@@ -15,6 +15,7 @@
         "rollup-plugin-dts": "^1.1.7",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-terser": "^5.1.2",
+        "rollup-plugin-typescript2": "^0.24.2",
         "ts-jest": "^24.1.0",
         "typescript": "^3.6.3"
     },

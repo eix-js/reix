@@ -4,20 +4,18 @@ import {
     InputMap,
     IEventDrivenComputationNode,
     IDisposableComputationNode,
-    ProcessingFunction
+    ProcessingFunction,
+    ProcessingFunctionArguments
 } from '../types/IComputation'
 import { computationFlags } from '../constants/computationFlags'
+import { StatefullComputationNode } from './StatefullComputationNode'
 
 /**
  * Base class for any non-input nodes with a "dispose" method.
  */
 export class BaseComputationNode<T, K extends InputMap>
+    extends StatefullComputationNode
     implements IEventDrivenComputationNode, IDisposableComputationNode {
-    /**
-     * inner property keeping track of the state
-     */
-    protected state = computationFlags.active
-
     /**
      * Inner property containing the current value of the node
      */
@@ -37,6 +35,8 @@ export class BaseComputationNode<T, K extends InputMap>
         protected inputs: K,
         protected calculate: ProcessingFunction<K, T>
     ) {
+        super()
+
         this.inputEmitters = Object.values(inputs).map(input => input.emitter)
 
         const disposeHandler = () => {
@@ -61,17 +61,10 @@ export class BaseComputationNode<T, K extends InputMap>
     public dispose() {
         if (this.state & computationFlags.active) {
             this.emitter.emit(computationEvents.disposed)
-            this.state ^= computationFlags.active
+            this.state = computationFlags.dead
         }
 
         return this
-    }
-
-    /**
-     * Helper for extracting the "active" flag from the state property.
-     */
-    public isActive() {
-        return this.state & computationFlags.active
     }
 
     /**
@@ -92,11 +85,11 @@ export class BaseComputationNode<T, K extends InputMap>
      * @returns The LazyComputationNode instance.
      */
     public triggerUpdate() {
-        if (!this.isActive) {
+        if (!this.isActive()) {
             return this
         }
 
-        const newValue = this.calculate(this.inputs)
+        const newValue = this.calculate(this.getProcessingInputs())
 
         let toEmit = computationEvents.updated
 
@@ -106,11 +99,28 @@ export class BaseComputationNode<T, K extends InputMap>
         }
 
         this.emitter.emit(toEmit)
-
-        if (this.state & computationFlags.dirty) {
-            this.state ^= computationFlags.dirty
-        }
+        this.postUpdate()
 
         return this
     }
+
+    /**
+     * Gets the values of all inputs
+     */
+    private getProcessingInputs() {
+        const output: Partial<ProcessingFunctionArguments<K>> = {}
+
+        for (const key in this.inputs) {
+            output[key] = this.inputs[key].get() as ReturnType<
+                BaseComputationNode<T, K>['inputs'][typeof key]['get']
+            >
+        }
+
+        return output as Required<typeof output>
+    }
+
+    /**
+     * Runs after the an update is triggered
+     */
+    protected postUpdate() {}
 }

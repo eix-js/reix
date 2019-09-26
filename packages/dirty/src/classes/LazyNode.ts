@@ -40,4 +40,13 @@ export class LazyComputationNode<T, K extends InputMap>
 
         return this.value
     }
+
+    /**
+     * Sets the dirty state to false.
+     */
+    protected postUpdate() {
+        if (this.state & computationFlags.dirty) {
+            this.state ^= computationFlags.dirty
+        }
+    }
 }

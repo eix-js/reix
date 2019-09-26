@@ -14,6 +14,12 @@ export interface IDisposableComputationNode {
     dispose(): this
 }
 
+export interface IStatefullComputationNode {
+    state: number
+
+    isActive(): number
+}
+
 /**
  * Interface for nodes which can are readable from the outside.
  */
@@ -26,7 +32,15 @@ export interface IReadableComputationNode<T> {
  */
 export type IComputationNode<T> = IEventDrivenComputationNode &
     IReadableComputationNode<T> &
-    IDisposableComputationNode
+    IDisposableComputationNode &
+    IStatefullComputationNode
 
 export type InputMap = Record<string, IComputationNode<unknown>>
-export type ProcessingFunction<T extends InputMap, K> = (inputs: T) => K
+
+export type ProcessingFunctionArguments<T extends InputMap> = {
+    [key in keyof T]: ReturnType<T[key]['get']>
+}
+
+export type ProcessingFunction<T extends InputMap, K> = (
+    inputs: ProcessingFunctionArguments<T>
+) => K

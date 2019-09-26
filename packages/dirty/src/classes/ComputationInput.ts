@@ -1,22 +1,22 @@
 import { IComputationNode } from '../types/IComputation'
 import { BitFieldEmitter } from '@reix/bits'
 import { computationEvents } from '../constants/computationEvents'
+import { StatefullComputationNode } from './StatefullComputationNode'
+import { computationFlags } from '../constants/computationFlags'
 
 /**
  * Input node for computation graphs
  */
-export class ComputationInputNode<T> implements IComputationNode<T> {
-    /**
-     * Only allow calling methods if this is true
-     */
-    private active = true
-
+export class ComputationInputNode<T> extends StatefullComputationNode
+    implements IComputationNode<T> {
     /**
      * Emits changed & disposed events
      */
     public emitter = new BitFieldEmitter<void>()
 
-    public constructor(private value: T) {}
+    public constructor(private value: T) {
+        super()
+    }
 
     /**
      * Gets the current value of the node.
@@ -34,12 +34,10 @@ export class ComputationInputNode<T> implements IComputationNode<T> {
      * @emits disposed
      */
     public dispose() {
-        if (!this.active) {
-            return this
+        if (this.state & computationFlags.active) {
+            this.state ^= computationFlags.active
+            this.emitter.emit(computationEvents.disposed)
         }
-
-        this.emitter.emit(computationEvents.disposed)
-        this.active = false
 
         return this
     }
@@ -50,15 +48,20 @@ export class ComputationInputNode<T> implements IComputationNode<T> {
      * @param newValue The value to set the node to.
      * @returns The current OperationInputNode instance.
      * @emits changed
-     *
      */
     public set(newValue: T) {
-        if (!this.active || newValue === this.value) {
+        if (!this.isActive()) {
             return this
         }
 
-        this.emitter.emit(computationEvents.changed)
-        this.value = newValue
+        let toEmit = computationEvents.updated
+
+        if (newValue !== this.value) {
+            this.value = newValue
+            toEmit |= computationEvents.changed
+        }
+
+        this.emitter.emit(toEmit)
 
         return this
     }
