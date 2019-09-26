@@ -1,7 +1,7 @@
 {
     "name": "@reix/dirty",
     "version": "0.0.1",
-    "description": "Base operations for the reix game engine",
+    "description": "Generalised computation graphs for the reix game engine",
     "main": "dist/bundle.cjs.js",
     "module": "dist/bundle.esm.js",
     "typings": "./dist/index.d.ts",

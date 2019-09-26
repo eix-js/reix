@@ -17,17 +17,17 @@ export class BaseComputationNode<T, K extends InputMap>
     extends StatefullComputationNode
     implements IEventDrivenComputationNode, IDisposableComputationNode {
     /**
-     * Inner property containing the current value of the node
+     * Inner property containing the current value of the node.
      */
     protected value: T
 
     /**
-     * Array of all inputEmitters the node has
+     * Array of all inputEmitters the node has.
      */
     protected inputEmitters: BitFieldEmitter<void>[]
 
     /**
-     * The base emitter implementing
+     * Emitter emiting events from the computationEvents enum.
      */
     public emitter = new BitFieldEmitter<void>()
 
@@ -120,7 +120,7 @@ export class BaseComputationNode<T, K extends InputMap>
     }
 
     /**
-     * Runs after the an update is triggered
+     * Runs after an update is triggered.
      */
     protected postUpdate() {}
 }

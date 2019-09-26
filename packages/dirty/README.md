@@ -1,11 +1,10 @@
 # `Dirty`
 
-> Generatlised operation classes for the reix game engine
+> Generatlised computation graphs for the reix game engine
 
 ## Usage
 
 ```
-const dirty = require('dirty');
+import
 
-// TODO: DEMONSTRATE API
 ```

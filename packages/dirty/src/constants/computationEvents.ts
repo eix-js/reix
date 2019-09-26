@@ -1,3 +1,6 @@
+/**
+ * Enum with all events emitted by Nodes
+ */
 export const enum computationEvents {
     changed = 0b001,
     updated = 0b010,
