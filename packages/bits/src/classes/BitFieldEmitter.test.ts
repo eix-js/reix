@@ -1,6 +1,6 @@
 import { BitFieldEmitter } from './BitFieldEmitter'
-import { expect } from "chai"
-import { spy } from "sinon"
+import { expect } from 'chai'
+import { spy } from 'sinon'
 
 describe('The BitFieldEmitter instance', () => {
     let emitter: BitFieldEmitter<number>
@@ -27,8 +27,7 @@ describe('The BitFieldEmitter instance', () => {
             const mock1 = spy()
             const mock2 = spy()
 
-            emitter.on(1, mock1)
-            emitter.on(2, mock2)
+            emitter.on(1, mock1).on(2, mock2)
 
             // act
             emitter.emit(3, Math.random())
@@ -43,8 +42,7 @@ describe('The BitFieldEmitter instance', () => {
             const mock110 = spy()
             const mock101 = spy()
 
-            emitter.on(0b110, mock110)
-            emitter.on(0b101, mock101)
+            emitter.on(0b110, mock110).on(0b101, mock101)
 
             // act
             emitter.emit(0b011, Math.random())
@@ -63,8 +61,7 @@ describe('The BitFieldEmitter instance', () => {
             emitter.once(1, mock)
 
             // act
-            emitter.emit(1, 0)
-            emitter.emit(1, 0)
+            emitter.emit(1, 0).emit(1, 0)
 
             // assert
             expect(mock.callCount).to.equal(1)
@@ -84,9 +81,10 @@ describe('The BitFieldEmitter instance', () => {
             emitter.on(1, mock)
 
             // act
-            emitter.emit(1, 0)
-            emitter.remove(mock)
-            emitter.emit(1, 0)
+            emitter
+                .emit(1, 0)
+                .remove(mock)
+                .emit(1, 0)
 
             // assert
             expect(mock.callCount).to.equal(1)
@@ -96,16 +94,43 @@ describe('The BitFieldEmitter instance', () => {
             // arrange
             const mock = spy()
 
-            emitter.on(1, mock)
-            emitter.on(2, mock)
+            emitter.on(1, mock).on(2, mock)
 
             // act
-            emitter.emit(3, 0)
-            emitter.remove(mock)
-            emitter.emit(3, 0)
+            emitter
+                .emit(3, 0)
+                .remove(mock)
+                .emit(3, 0)
 
             // assert
-            expect(mock.callCount).to.equal(2)
+            expect(mock.callCount).to.equal(1)
+        })
+    })
+
+    describe('The removeGroup methodd', () => {
+        it('should do nothing when given an empty set', () => {
+            // act
+            emitter.removeGroup(new Set())
+        })
+
+        it('should remove all handlers in the set', () => {
+            // arrange
+            const callback1 = spy()
+            const callback2 = spy()
+            const callbacks = new Set([callback1, callback2])
+
+            emitter
+                .on(1, callback1)
+                .on(2, callback2)
+                .on(3, callback1)
+                .on(3, callback2)
+
+            // act
+            emitter.emit(3, 0).removeGroup(callbacks)
+
+            // assert
+            expect(callback1.callCount).to.equal(1)
+            expect(callback2.callCount).to.equal(1)
         })
     })
 })
