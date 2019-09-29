@@ -1,6 +1,8 @@
 import { ComputationInputNode } from './ComputationInput'
 import { LazyComputationNode } from './LazyNode'
 import { computationEvents } from '../constants/computationEvents'
+import { expect } from "chai"
+import { spy } from "sinon"
 
 // helpers
 const createIdentityNode = (transform = (a: number) => a) => {
@@ -16,44 +18,41 @@ const createIdentityNode = (transform = (a: number) => a) => {
 }
 
 describe('The LazyNode instance', () => {
-    let mock: ReturnType<typeof jest.fn>
-
-    beforeEach(() => {
-        mock = jest.fn()
-    })
-
-    test('should not update if the data isnt requested', () => {
+    it('should not update if the data isnt requested', () => {
         // arrange
         const { input, output } = createIdentityNode()
+        const callback = spy()
 
-        output.emitter.on(computationEvents.updated, mock)
+        output.emitter.on(computationEvents.updated, callback)
 
         // act
         input.set(7)
 
         // assert
-        expect(mock).not.toBeCalled()
+        expect(callback.called).to.be.false
     })
 
-    test('should update if the data is requested for the first time', () => {
+    it('should update if the data is requested for the first time', () => {
         // arrange
         const { input, output } = createIdentityNode()
+        const callback = spy()
 
-        output.emitter.on(computationEvents.updated, mock)
+        output.emitter.on(computationEvents.updated, callback)
 
         // act
         input.set(7)
         output.get()
 
         // assert
-        expect(mock).toBeCalledTimes(1)
+        expect(callback.callCount).to.equal(1)
     })
 
-    test('should only update once if the data is requested multiple tines', () => {
+    it('should only update once if the data is requested multiple tines', () => {
         // arrange
         const { input, output } = createIdentityNode()
+        const callback = spy()
 
-        output.emitter.on(computationEvents.updated, mock)
+        output.emitter.on(computationEvents.updated, callback)
 
         // act
         input.set(7)
@@ -61,6 +60,6 @@ describe('The LazyNode instance', () => {
         output.get()
 
         // assert
-        expect(mock).toBeCalledTimes(1)
+        expect(callback.callCount).to.equal(1)
     })
 })

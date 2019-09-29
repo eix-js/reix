@@ -1,4 +1,6 @@
 import { BitFieldEmitter } from './BitFieldEmitter'
+import { expect } from "chai"
+import { spy } from "sinon"
 
 describe('The BitFieldEmitter instance', () => {
     let emitter: BitFieldEmitter<number>
@@ -8,22 +10,22 @@ describe('The BitFieldEmitter instance', () => {
     })
 
     describe('Adding a handler and emiting an event', () => {
-        test('should call the handler if the event code matches the one of the handler', () => {
+        it('should call the handler if the event code matches the one of the handler', () => {
             // arrange
-            const mock = jest.fn()
+            const mock = spy()
             emitter.on(1, mock)
 
             // act
             emitter.emit(1, Math.random())
 
             // assert
-            expect(mock).toBeCalled()
+            expect(mock.called).to.be.true
         })
 
-        test('should call the handler if the event code contains all bits of the handler', () => {
+        it('should call the handler if the event code contains all bits of the handler', () => {
             // arrange
-            const mock1 = jest.fn()
-            const mock2 = jest.fn()
+            const mock1 = spy()
+            const mock2 = spy()
 
             emitter.on(1, mock1)
             emitter.on(2, mock2)
@@ -32,14 +34,14 @@ describe('The BitFieldEmitter instance', () => {
             emitter.emit(3, Math.random())
 
             // assert
-            expect(mock1).toBeCalled()
-            expect(mock2).toBeCalled()
+            expect(mock1.called).to.be.true
+            expect(mock2.called).to.be.true
         })
 
-        test('should call the handler if the event code contains at least 1 bit of the handler', () => {
+        it('should call the handler if the event code contains at least 1 bit of the handler', () => {
             // arrange
-            const mock110 = jest.fn()
-            const mock101 = jest.fn()
+            const mock110 = spy()
+            const mock101 = spy()
 
             emitter.on(0b110, mock110)
             emitter.on(0b101, mock101)
@@ -48,15 +50,15 @@ describe('The BitFieldEmitter instance', () => {
             emitter.emit(0b011, Math.random())
 
             // assert
-            expect(mock110).toBeCalled()
-            expect(mock101).toBeCalled()
+            expect(mock110.called).to.be.true
+            expect(mock101.called).to.be.true
         })
     })
 
     describe('The once method', () => {
-        test('should only call the event once', () => {
+        it('should only call the event once', () => {
             // arrange
-            const mock = jest.fn()
+            const mock = spy()
 
             emitter.once(1, mock)
 
@@ -65,19 +67,19 @@ describe('The BitFieldEmitter instance', () => {
             emitter.emit(1, 0)
 
             // assert
-            expect(mock).toBeCalledTimes(1)
+            expect(mock.callCount).to.equal(1)
         })
     })
 
     describe(`The remove method`, () => {
-        test('should do nothing if there are no handlers to remove', () => {
+        it('should do nothing if there are no handlers to remove', () => {
             // act
-            emitter.remove(jest.fn())
+            emitter.remove(spy())
         })
 
-        test('should remove the hander if it exists', () => {
+        it('should remove the hander if it exists', () => {
             // arrange
-            const mock = jest.fn()
+            const mock = spy()
 
             emitter.on(1, mock)
 
@@ -87,12 +89,12 @@ describe('The BitFieldEmitter instance', () => {
             emitter.emit(1, 0)
 
             // assert
-            expect(mock).toBeCalledTimes(1)
+            expect(mock.callCount).to.equal(1)
         })
 
-        test('should remove the handler if it was added multiple times', () => {
+        it('should remove the handler if it was added multiple times', () => {
             // arrange
-            const mock = jest.fn()
+            const mock = spy()
 
             emitter.on(1, mock)
             emitter.on(2, mock)
@@ -103,7 +105,7 @@ describe('The BitFieldEmitter instance', () => {
             emitter.emit(3, 0)
 
             // assert
-            expect(mock).toBeCalledTimes(2)
+            expect(mock.callCount).to.equal(2)
         })
     })
 })

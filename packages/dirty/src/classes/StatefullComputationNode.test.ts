@@ -1,17 +1,18 @@
 import { StatefullComputationNode } from './StatefullComputationNode'
 import { computationFlags } from '../constants/computationFlags'
+import { expect } from "chai"
 
 describe('The StatefullComputationNode instance', () => {
     describe('The isActive method', () => {
-        test('should return true if the active bit is 1', () => {
+        it('should return true if the active bit is 1', () => {
             // arrange
             const node = new StatefullComputationNode()
 
             // assert
-            expect(node.isActive()).toBeTruthy()
+            expect(Boolean(node.isActive())).to.be.true
         })
 
-        test('should return false if the active bit is 0', () => {
+        it('should return false if the active bit is 0', () => {
             // arrange
             const node = new StatefullComputationNode()
 
@@ -19,7 +20,7 @@ describe('The StatefullComputationNode instance', () => {
             node.state ^= computationFlags.active
 
             // assert
-            expect(node.isActive()).not.toBeTruthy()
+            expect(Boolean(node.isActive())).to.be.false
         })
     })
 })
