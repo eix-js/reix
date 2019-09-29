@@ -19,6 +19,7 @@ const input = './src/index.ts'
 export default [
     {
         input,
+        external,
         output: [
             {
                 file: `${dist}/bundle.cjs.js`,
@@ -29,7 +30,6 @@ export default [
                 format: 'esm'
             }
         ],
-        external,
         plugins: [
             nodeResolve({
                 extensions: ['.ts']

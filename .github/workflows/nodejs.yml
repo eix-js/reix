@@ -17,7 +17,7 @@ jobs:
 
               with:
                   node-version: ${{ matrix.node-version }}
-            - name: npm install and test
+            - name: install, bootstrap and test
               run: |    
                   npm run setup:ci
                   npm run test
