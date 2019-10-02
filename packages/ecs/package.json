@@ -1,0 +1,42 @@
+{
+    "name": "@reix/ecs",
+    "version": "0.0.1",
+    "description": "Entity component system for the reix game engine",
+    "keywords": [
+        "reix",
+        "ecs",
+        "entity",
+        "component",
+        "system",
+        "game",
+        "engine",
+        "typescript"
+    ],
+    "main": "dist/bundle.cjs.js",
+    "module": "dist/bundle.esm.js",
+    "typings": "./dist/index.d.ts",
+    "publishConfig": {
+        "access": "public"
+    },
+    "author": "Mateiadrielrafael <rafaeladriel11@gmail.com>",
+    "homepage": "https://github.com/Mateiadrielrafael/reix",
+    "license": "MIT",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mateiadrielrafael/reix.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Mateiadrielrafael/reix/issues"
+    },
+    "dependencies": {
+        "double-ended-queue": "^2.1.0-0",
+        "tslib": "^1.10.0"
+    },
+    "gitHead": "8897a579839978226c30495a0825cfc11e5d02de",
+    "devDependencies": {
+        "@types/double-ended-queue": "^2.1.1"
+    }
+}

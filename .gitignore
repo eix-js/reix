@@ -1,4 +1,10 @@
+# Temporary directories
 node_modules
-dist    
+dist
+
+# Random folders i usually create
 sandbox
+idea
+
+# Debug stuff
 lerna-debug.log
