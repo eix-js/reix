@@ -32,6 +32,6 @@ export class SynchronousComputationNode<T, K extends InputMap>
      * Returns the current vaule of the node.
      */
     public get() {
-        return this.value
+        return this.value!
     }
 }

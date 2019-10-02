@@ -19,7 +19,7 @@ export class BaseComputationNode<T, K extends InputMap>
     /**
      * Inner property containing the current value of the node.
      */
-    protected value: T
+    protected value?: T
 
     /**
      * Array of all inputEmitters the node has.
@@ -116,7 +116,7 @@ export class BaseComputationNode<T, K extends InputMap>
             >
         }
 
-        return output as Required<typeof output>
+        return output as ProcessingFunctionArguments<K>
     }
 
     /**

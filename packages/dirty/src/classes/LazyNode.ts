@@ -38,7 +38,7 @@ export class LazyComputationNode<T, K extends InputMap>
             this.triggerUpdate()
         }
 
-        return this.value
+        return this.value!
     }
 
     /**

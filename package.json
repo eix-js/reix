@@ -28,6 +28,7 @@
     "scripts": {
         "prebuild": "lerna exec rimraf dist",
         "build": "lerna exec --since -- rollup -c ../../rollup.config.js",
+        "build:all": "lerna exec -- rollup -c ../../rollup.config.js",
         "build:watch": "lerna exec --parallel -- rollup -c ../../rollup.config.js -w",
         "test": "lerna exec -- mocha --opts ../../test/mocha.opts",
         "test:changed": "lerna exec --since -- mocha --opts ../../test/mocha.opts",
