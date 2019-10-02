@@ -30,7 +30,7 @@ export class Ecs {
         this.indexMask = (1 << this.options.entityIndexBits) - 1
     }
 
-    public generateIndex(allowRecycling = true) {
+    public create(allowRecycling = true) {
         let index: number
 
         if (
@@ -40,7 +40,7 @@ export class Ecs {
             if (this.recycleDeque.peekFront()) {
                 index = this.recycleDeque.shift()!
             } else {
-                index = this.generateIndex(false)
+                index = this.create(false)
             }
         } else {
             index = this.generation.push(0) - 1
