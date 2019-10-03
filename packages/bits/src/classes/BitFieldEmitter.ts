@@ -8,7 +8,7 @@ export type BitFieldEventHandlerData<T> = {
  * An event emitter which uses bitFields as event codes,
  * making it easy to call multiple events at a time
  * & set handler for multiple events at once.
- * 
+ *
  * @param maxBits THe max number of bits to check againts.
  */
 export class BitFieldEmitter<T> {
@@ -18,7 +18,9 @@ export class BitFieldEmitter<T> {
     private handlers: Set<BitFieldEventHandler<T>>[]
 
     public constructor(public maxBits = 32) {
-        this.handlers = Array(maxBits).fill(1).map(() => new Set<BitFieldEventHandler<T>>())
+        this.handlers = Array(maxBits)
+            .fill(1)
+            .map(() => new Set<BitFieldEventHandler<T>>())
     }
 
     /**
@@ -39,9 +41,13 @@ export class BitFieldEmitter<T> {
      * emitter.emit(0b101, ...) // fired
      * emitter.emit(0b110, ...) // fired
      */
-    public on(code: number, handler: BitFieldEventHandler<T>, maxBitsHint = this.maxBits) {
+    public on(
+        code: number,
+        handler: BitFieldEventHandler<T>,
+        maxBitsHint = this.maxBits
+    ) {
         for (let i = 0; i < maxBitsHint; i++) {
-            if (code & 1 << i) {
+            if (code & (1 << i)) {
                 this.handlers[i].add(handler)
             }
         }
@@ -57,7 +63,7 @@ export class BitFieldEmitter<T> {
      * @param handler The event listener to remove.
      *
      * @returns The BitFieldEventHandler instance.
-     * 
+     *
      * @example
      * emitter.on(0, handler)
      * emitter.emit(0, ...) // fires
@@ -72,7 +78,10 @@ export class BitFieldEmitter<T> {
      * emitter.remove(handler)
      * emitter.emit(1) // doesn't fire
      */
-    public remove(handler: BitFieldEventHandler<T>, maxBitsHint = this.maxBits) {
+    public remove(
+        handler: BitFieldEventHandler<T>,
+        maxBitsHint = this.maxBits
+    ) {
         for (let bit = 0; bit < maxBitsHint; bit++) {
             this.handlers[bit].delete(handler)
         }
@@ -82,19 +91,22 @@ export class BitFieldEmitter<T> {
 
     /**
      * Removes all handlers from a set.
-     * 
+     *
      * @param handlers Set with handlers to remove.
-     * 
+     *
      * @returns The BitFieldEventHandler instance.
-     * 
+     *
      * @example
      * const group = new Set([handler1, handler2])
-     * 
+     *
      * emitter.removeGroup(group)
      */
-    public removeGroup(handlers: Set<BitFieldEventHandler<T>>, maxBitsHint = this.maxBits) {
+    public removeGroup(
+        handlers: Iterable<BitFieldEventHandler<T>>,
+        maxBitsHint = this.maxBits
+    ) {
         for (let bit = 0; bit < maxBitsHint; bit++) {
-            for (const handler of handlers.values()) {
+            for (const handler of handlers) {
                 this.handlers[bit].delete(handler)
             }
         }
@@ -110,7 +122,11 @@ export class BitFieldEmitter<T> {
      *
      * @returns The BitFieldEventHandler instance.
      */
-    public once(code: number, handler: BitFieldEventHandler<T>, maxBitsHint = this.maxBits) {
+    public once(
+        code: number,
+        handler: BitFieldEventHandler<T>,
+        maxBitsHint = this.maxBits
+    ) {
         const onceHandler = (...args: Parameters<BitFieldEventHandler<T>>) => {
             handler(...args)
 
@@ -127,14 +143,14 @@ export class BitFieldEmitter<T> {
      *
      * @param code The code to trigger the listeners with.
      * @param data The data to pass to the listeners.
-     * 
+     *
      * @returns The BitFieldEventHandler instance.
      */
     public emit(code: number, data: T, maxBitsHint = this.maxBits) {
         const called = new Set<BitFieldEventHandler<T>>()
 
         for (let bit = 0; bit < maxBitsHint; bit++) {
-            if (code & 1 << bit) {
+            if (code & (1 << bit)) {
                 for (const handler of this.handlers[bit].values()) {
                     if (called.has(handler)) {
                         continue
