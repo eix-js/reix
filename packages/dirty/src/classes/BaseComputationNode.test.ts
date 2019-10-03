@@ -1,8 +1,8 @@
 import { BaseComputationNode } from './BaseComputationNode'
 import { ComputationInputNode } from './ComputationInput'
 import { computationEvents } from '../constants/computationEvents'
-import { expect } from "chai"
-import { spy } from "sinon"
+import { expect } from 'chai'
+import { spy } from 'sinon'
 
 // helpers
 const createIdentityNode = (transform = (a: number) => a) => {
@@ -35,7 +35,7 @@ describe('The BaseComputationNode instance', () => {
     describe('The dispose method', () => {
         it('should emit the dispose event', () => {
             // arrange
-            const output = new BaseComputationNode({}, () => { })
+            const output = new BaseComputationNode({}, () => {})
             const callback = spy()
 
             output.emitter.on(computationEvents.disposed, callback)
@@ -111,7 +111,12 @@ describe('The BaseComputationNode instance', () => {
             expect(updatedCallback.callCount).to.equal(1)
             expect(changedCallback.callCount).to.equal(1)
             expect(bothCallback.callCount).to.equal(1)
-            expect(bothCallback.calledWith(undefined, computationEvents.changedAndUpdated)).to.be.true
+            expect(
+                bothCallback.calledWith(
+                    undefined,
+                    computationEvents.changedAndUpdated
+                )
+            ).to.be.true
         })
     })
 })

@@ -3,28 +3,25 @@ import {
     InputMap,
     ProcessingFunction
 } from '../types/IComputation'
-import { computationFlags } from '../constants/computationFlags'
 import { BaseComputationNode } from './BaseComputationNode'
 import { computationEvents } from '../constants/computationEvents'
 
-/**
- * Lazy node for computation graphs
- */
 export class SynchronousComputationNode<T, K extends InputMap>
     extends BaseComputationNode<T, K>
     implements IComputationNode<T> {
+    /**
+     * Lazy node for computation graphs.
+     *
+     * @param inputs Input nodes to react on.
+     * @param calculate Function to calculate input from output.
+     */
     public constructor(inputs: K, calculate: ProcessingFunction<K, T>) {
-        super(inputs, calculate)
+        // can't bind it to this cause this can't shouldn't
+        // be accessed before super()
+        super(inputs, calculate, () => {
+            this.triggerUpdate()
+        })
 
-        for (const emitter of this.inputEmitters) {
-            emitter.on(computationEvents.changed, () => {
-                this.triggerUpdate()
-
-                // TODO: unsubscribe on dispose
-            })
-        }
-
-        // trigger initial update
         this.triggerUpdate()
     }
 

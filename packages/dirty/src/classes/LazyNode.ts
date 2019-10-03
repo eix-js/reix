@@ -5,26 +5,25 @@ import {
 } from '../types/IComputation'
 import { computationFlags } from '../constants/computationFlags'
 import { BaseComputationNode } from './BaseComputationNode'
-import { computationEvents } from '../constants/computationEvents'
 
-/**
- * Lazy node for computation graphs
- */
 export class LazyComputationNode<T, K extends InputMap>
     extends BaseComputationNode<T, K>
     implements IComputationNode<T> {
+    /**
+     * inner property keeping track of the state
+     */
+    public state = computationFlags.activeAndDirty
+
+    /**
+     * Lazy node for computation graphs.
+     *
+     * @param inputs Input nodes to react on.
+     * @param calculate Function to calculate input from output.
+     */
     public constructor(inputs: K, calculate: ProcessingFunction<K, T>) {
-        super(inputs, calculate)
-
-        for (const emitter of this.inputEmitters) {
-            emitter.on(computationEvents.changed, () => {
-                this.state |= computationFlags.dirty
-
-                // TODO: unsubscribe on dispose
-            })
-        }
-
-        this.state |= computationFlags.dirty
+        super(inputs, calculate, () => {
+            this.state |= computationFlags.dirty
+        })
     }
 
     /**

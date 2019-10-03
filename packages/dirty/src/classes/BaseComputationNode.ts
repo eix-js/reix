@@ -1,4 +1,4 @@
-import { BitFieldEmitter } from '@reix/bits'
+import { BitFieldEmitter, BitFieldEventHandler } from '@reix/bits'
 import { computationEvents } from '../constants/computationEvents'
 import {
     InputMap,
@@ -10,9 +10,6 @@ import {
 import { computationFlags } from '../constants/computationFlags'
 import { StatefullComputationNode } from './StatefullComputationNode'
 
-/**
- * Base class for any non-input nodes with a "dispose" method.
- */
 export class BaseComputationNode<T, K extends InputMap>
     extends StatefullComputationNode
     implements IEventDrivenComputationNode, IDisposableComputationNode {
@@ -27,28 +24,44 @@ export class BaseComputationNode<T, K extends InputMap>
     protected inputEmitters: BitFieldEmitter<void>[]
 
     /**
+     * Handlers to remove on dispose.
+     */
+    protected volatileHandlers = new Set<BitFieldEventHandler<void>>()
+
+    /**
      * Emitter emiting events from the computationEvents enum.
      */
     public emitter = new BitFieldEmitter<void>()
 
+    /**
+     * Base class for any non-input nodes with a "dispose" method.
+     *
+     * @param inputs Input nodes to react on.
+     * @param calculate Function to calculate input from output.
+     */
     public constructor(
         protected inputs: K,
-        protected calculate: ProcessingFunction<K, T>
+        protected calculate: ProcessingFunction<K, T>,
+        changeHandler: () => void = () => {}
     ) {
         super()
 
-        this.inputEmitters = Object.values(inputs).map(input => input.emitter)
+        this.inputEmitters = Object.values(inputs).map(({ emitter }) => emitter)
 
         const disposeHandler = () => {
             this.dispose()
 
             for (const emitter of this.inputEmitters) {
-                emitter.remove(disposeHandler)
+                emitter.removeGroup(this.volatileHandlers)
             }
         }
 
+        this.volatileHandlers.add(disposeHandler).add(changeHandler)
+
         for (const emitter of this.inputEmitters) {
-            emitter.on(computationEvents.disposed, disposeHandler)
+            emitter
+                .on(computationEvents.disposed, disposeHandler)
+                .on(computationEvents.changed, changeHandler)
         }
     }
 
@@ -62,6 +75,8 @@ export class BaseComputationNode<T, K extends InputMap>
         if (this.state & computationFlags.active) {
             this.emitter.emit(computationEvents.disposed)
             this.state = computationFlags.dead
+
+            this.volatileHandlers.clear()
         }
 
         return this
@@ -111,9 +126,9 @@ export class BaseComputationNode<T, K extends InputMap>
         const output: Partial<ProcessingFunctionArguments<K>> = {}
 
         for (const key in this.inputs) {
-            output[key] = this.inputs[key].get() as ReturnType<
-                BaseComputationNode<T, K>['inputs'][typeof key]['get']
-            >
+            output[key] = this.inputs[key].get() as ProcessingFunctionArguments<
+                K
+            >[typeof key]
         }
 
         return output as ProcessingFunctionArguments<K>
