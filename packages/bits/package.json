@@ -1,6 +1,6 @@
 {
     "name": "@reix/bits",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Bit related utilities for the eix game engine",
     "main": "dist/bundle.cjs.js",
     "module": "dist/bundle.esm.js",

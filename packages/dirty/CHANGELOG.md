@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.3](https://github.com/Mateiadrielrafael/reix/compare/@reix/dirty@0.1.0-alpha.2...@reix/dirty@0.1.0-alpha.3) (2019-10-03)
+
+
+### Bug Fixes
+
+* **@reix/dirty:** Fixed ts errors ([07be611](https://github.com/Mateiadrielrafael/reix/commit/07be611))
+
+
+
+
+
 # [0.1.0-alpha.2](https://github.com/Mateiadrielrafael/reix/compare/@reix/dirty@0.1.0-alpha.1...@reix/dirty@0.1.0-alpha.2) (2019-09-29)
 
 **Note:** Version bump only for package @reix/dirty
