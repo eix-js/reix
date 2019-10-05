@@ -13,5 +13,11 @@
         "alwaysStrict": true,
         "strictNullChecks": true
     },
-    "include": ["./packages/**/*.ts"]
+    "include": [
+        "./packages/**/*.ts",
+        "./meta/**/*.ts",
+        "./test/**/*.ts",
+        "./rollup.config.ts",
+        "./babel.config.ts"
+    ]
 }

@@ -1,4 +1,6 @@
-module.exports = {
+import { TransformOptions } from '@babel/core'
+
+export const babelConfig: TransformOptions = {
     presets: [
         [
             '@babel/preset-env',
