@@ -1,1 +1,4 @@
-export * from './classes/Ecs'
+export * from './classes/EntityPool'
+export * from './classes/IndexedComponentManager'
+
+export * from './types/ComponentManager'

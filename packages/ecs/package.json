@@ -32,6 +32,7 @@
         "url": "https://github.com/Mateiadrielrafael/reix/issues"
     },
     "dependencies": {
+        "@reix/bits": "^0.2.2",
         "double-ended-queue": "^2.1.0-0",
         "tslib": "^1.10.0"
     },

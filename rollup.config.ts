@@ -3,10 +3,10 @@ import dts from 'rollup-plugin-dts'
 import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
 import { resolve } from 'path'
+import { babelConfig } from './babel.config'
 
 // @ts-ignore No declarations.
 import babel from 'rollup-plugin-babel'
-import { babelConfig } from './babel.config'
 
 const packageDirectory = process.cwd()
 const outputDirectory = resolve(packageDirectory, 'dist')

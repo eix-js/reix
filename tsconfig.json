@@ -19,5 +19,6 @@
         "./test/**/*.ts",
         "./rollup.config.ts",
         "./babel.config.ts"
-    ]
+    ],
+    "exclude": ["./packages/**/dist/*.*"]
 }
