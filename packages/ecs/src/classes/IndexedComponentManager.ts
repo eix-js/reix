@@ -10,12 +10,12 @@ export class IndexedComponentManager<T> implements ComponentManager<T> {
     /**
      * MAp for getting the index of an entity from it's id
      */
-    private readonly idToIndex = new Map<number, number>()
+    public readonly idToIndex = new Map<number, number>()
 
     /**
      * Map for getting the id of an entity from it's index.
      */
-    private readonly indexToId = new Map<number, number>()
+    public readonly indexToId = new Map<number, number>()
 
     /**
      * Array with all components.
