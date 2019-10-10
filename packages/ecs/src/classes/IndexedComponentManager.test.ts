@@ -28,7 +28,7 @@ describe('The IndexedComponentManager instance', () => {
     })
 
     describe('The deleteEntity method', () => {
-        it('should emit the added event with the correct id', () => {
+        it('should emit the added event with the correct id if the entity existed', () => {
             // arrange
             const random = Math.random()
             const handler = spy()
@@ -41,6 +41,20 @@ describe('The IndexedComponentManager instance', () => {
             // assert
             expect(handler.called).to.be.true
             expect(handler.calledWith(random)).to.be.true
+        })
+
+        it('should not emit the added event if the entity does not exist', () => {
+            // arrange
+            const random = Math.random()
+            const handler = spy()
+
+            manager.emitter.on(componentEvents.removed, handler)
+
+            // act
+            manager.deleteEntity(random)
+
+            // assert
+            expect(handler.called).to.be.false
         })
     })
 

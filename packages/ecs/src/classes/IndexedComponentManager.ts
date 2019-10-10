@@ -49,30 +49,33 @@ export class IndexedComponentManager<T> implements ComponentManager<T> {
      * @param id The if of the entity to remove.
      */
     public deleteEntity(id: number) {
-        // move last element in the new free slot
-        const index = this.idToIndex.get(id)!
-        const lastElement = this.components.pop()
+        const index = this.idToIndex.get(id)
 
-        // only do this if the index wasnt the last one
-        if (index !== this.components.length) {
-            this.components[index] = lastElement!
+        if (index !== undefined) {
+            // move last element in the new free slot
+            const lastElement = this.components.pop()
 
-            // update index of the moved id
-            const moveId = this.indexToId.get(this.components.length)!
+            // only do this if the index wasnt the last one
+            if (index !== this.components.length) {
+                this.components[index] = lastElement!
 
-            this.indexToId.delete(this.components.length)
+                // update index of the moved id
+                const moveId = this.indexToId.get(this.components.length)!
 
-            this.indexToId.set(index, moveId)
-            this.idToIndex.set(moveId, index)
-        } else {
-            this.indexToId.delete(index)
+                this.indexToId.delete(this.components.length)
+
+                this.indexToId.set(index, moveId)
+                this.idToIndex.set(moveId, index)
+            } else {
+                this.indexToId.delete(index)
+            }
+
+            // delete id from map
+            this.idToIndex.delete(id)
+
+            // emit event if the id did exist
+            this.emitter.emit(componentEvents.removed, id)
         }
-
-        // delete id from map
-        this.idToIndex.delete(id)
-
-        this.emitter.emit(componentEvents.removed, id)
-
         return this
     }
 
@@ -153,6 +156,8 @@ export class IndexedComponentManager<T> implements ComponentManager<T> {
         for (const id of ids) {
             this.emitter.emit(componentEvents.changed, id)
         }
+
+        return this
     }
 
     /**
@@ -162,6 +167,8 @@ export class IndexedComponentManager<T> implements ComponentManager<T> {
      */
     public mutateOne(id: number) {
         this.emitter.emit(componentEvents.changed, id)
+
+        return this
     }
 
     /**
@@ -171,6 +178,8 @@ export class IndexedComponentManager<T> implements ComponentManager<T> {
      */
     public withMutations(callback: () => number[]) {
         this.mutateMany(callback())
+
+        return this
     }
 
     /**
@@ -180,5 +189,7 @@ export class IndexedComponentManager<T> implements ComponentManager<T> {
      */
     public withMutation(callback: () => number) {
         this.mutateOne(callback())
+
+        return this
     }
 }
