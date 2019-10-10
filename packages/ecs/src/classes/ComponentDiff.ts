@@ -1,19 +1,39 @@
-import { BitFieldEmitter, BitFieldEventHandler } from '@reix/bits'
+import { BitFieldEventHandler } from '@reix/bits'
 import { ComponentOperation } from '../types/ComponentOperation'
 import { ComponentManager } from '../types/ComponentManager'
 import { componentOperations } from '../constants/componentOperations'
 import { componentEvents } from '../constants/componentEvents'
 
 export class ComponentDiff<T> {
+    /**
+     * Handlers to be removed on dispose.
+     */
     private readonly volatileHandlers = new Set<BitFieldEventHandler<number>>()
 
+    /**
+     * Added entities since the last reset.
+     */
     private readonly added = new Set<number>()
+
+    /**
+     * Changed entities since the last reset.
+     */
     private readonly changed = new Set<number>()
+
+    /**
+     * Deleted entities since the alst reset.
+     */
     private readonly removed = new Set<number>()
 
+    /**
+     * Low level class to get the diff of a ComponentManager.
+     *
+     * @param source The ComponentManager to get the diff of.
+     * @param verboose Specifies if errors should be thrown when somehing is somewhat wrong.
+     */
     public constructor(
         public readonly source: ComponentManager<T>,
-        public silent = false
+        public verboose = true
     ) {
         const addedHandler = this.addEntity.bind(this)
         const removedHandler = this.removeEntity.bind(this)
@@ -30,6 +50,9 @@ export class ComponentDiff<T> {
             .add(changedHandler)
     }
 
+    /**
+     * Clean inner sets.
+     */
     private clean() {
         this.removed.clear()
         this.added.clear()
@@ -38,6 +61,9 @@ export class ComponentDiff<T> {
         return this
     }
 
+    /**
+     * Remove handlers and clean everything.
+     */
     public dispose() {
         this.clean()
 
@@ -45,7 +71,12 @@ export class ComponentDiff<T> {
         this.volatileHandlers.clear()
     }
 
-    public addEntity(id: number) {
+    /**
+     * Add an entity to the diff.
+     *
+     * @param id The id to add.
+     */
+    private addEntity(id: number) {
         this.added.add(id)
         this.changed.add(id)
 
@@ -54,7 +85,12 @@ export class ComponentDiff<T> {
         return this
     }
 
-    public removeEntity(id: number) {
+    /**
+     * Remove an entity from the diff.
+     *
+     * @param id The id to remove.
+     */
+    private removeEntity(id: number) {
         this.changed.delete(id)
 
         if (this.added.has(id)) {
@@ -66,13 +102,24 @@ export class ComponentDiff<T> {
         return this
     }
 
-    public mutateEntity(id: number) {
+    /**
+     * Mark an entity as changed.
+     *
+     * @param id The id to mark as mutated.
+     */
+    private mutateEntity(id: number) {
         this.changed.add(id)
 
         return this
     }
 
-    public collect() {
+    /**
+     * Collet the diff accumulated. Pass "false" as the first argument to skip reseting.
+     * (Next diff will be calculated from the last reset.)
+     *
+     * @param reset If set to true the inner state will automatically reset.
+     */
+    public collect(reset = true) {
         const collected: ComponentOperation<T>[] = []
 
         for (const id of this.changed) {
@@ -88,7 +135,7 @@ export class ComponentDiff<T> {
                     component,
                     id
                 })
-            } else if (!this.silent) {
+            } else if (this.verboose) {
                 throw new Error(`Cannot find component of entity with id ${id}`)
             }
         }
@@ -100,7 +147,9 @@ export class ComponentDiff<T> {
             })
         }
 
-        this.clean()
+        if (reset) {
+            this.clean()
+        }
 
         return collected
     }
