@@ -6,6 +6,9 @@ import {
 } from '../types/ComponentMap'
 
 export class Ecs<M> {
+    /**
+     * Entity pool used to generate entities.
+     */
     public pool: EntityPool
 
     /**
@@ -41,6 +44,19 @@ export class Ecs<M> {
     }
 
     /**
+     * Deletes and entity by id.
+     *
+     * @param id The id of the enity to delete.
+     */
+    public deleteEntity(id: number) {
+        this.pool.destroy(id)
+
+        for (const manager of Object.values(this.componentManagers)) {
+            manager.deleteEntity(id)
+        }
+    }
+
+    /**
      * Gets all components of the entity with the given id.
      *
      * Note: If you only want to get a few of the components,
@@ -65,6 +81,12 @@ export class Ecs<M> {
         return result
     }
 
+    /**
+     * Gets a few components for a given id.
+     *
+     * @param id The id of the entity to get components from.
+     * @param components List with what components to get.
+     */
     public getComponentsByEntityId<L extends ReadonlyArray<keyof M>>(
         id: number,
         components: L
