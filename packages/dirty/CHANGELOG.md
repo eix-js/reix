@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.5](https://github.com/Mateiadrielrafael/reix/compare/@reix/dirty@0.1.0-alpha.4...@reix/dirty@0.1.0-alpha.5) (2019-10-10)
+
+
+### Features
+
+* **@reix/ecs:** Added the ComponentDiff class ([be5d409](https://github.com/Mateiadrielrafael/reix/commit/be5d409))
+
+
+
+
+
 # [0.1.0-alpha.4](https://github.com/Mateiadrielrafael/reix/compare/@reix/dirty@0.1.0-alpha.3...@reix/dirty@0.1.0-alpha.4) (2019-10-03)
 
 

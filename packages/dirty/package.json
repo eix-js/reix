@@ -1,6 +1,6 @@
 {
     "name": "@reix/dirty",
-    "version": "0.1.0-alpha.4",
+    "version": "0.1.0-alpha.5",
     "description": "Generalised computation graphs for the reix game engine",
     "main": "dist/bundle.cjs.js",
     "module": "dist/bundle.esm.js",
