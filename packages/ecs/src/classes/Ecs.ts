@@ -8,6 +8,12 @@ import {
 export class Ecs<M> {
     public pool: EntityPool
 
+    /**
+     * Glues an EntityPool with ComponentManagers.
+     *
+     * @param componentManagers The Map of componentManagers to use.
+     * @param poolOptions Options for the entityPool.
+     */
     public constructor(
         public componentManagers: ComponentManagerMap<M>,
         poolOptions: Partial<EntityPoolOptions> = {}
@@ -15,6 +21,12 @@ export class Ecs<M> {
         this.pool = new EntityPool(poolOptions)
     }
 
+    /**
+     * Generates an entity id, registers the passed components.
+     *
+     * @param components The components the entity should have.
+     * @returns The entity id.
+     */
     public createEntity(components: Partial<ExtractComponentMap<M>> = {}) {
         const id = this.pool.create()
 
@@ -28,6 +40,14 @@ export class Ecs<M> {
         return id
     }
 
+    /**
+     * Gets all components of the entity with the given id.
+     *
+     * Note: If you only want to get a few of the components,
+     * use the getComponentsByEntityId method instead.
+     *
+     * @param id The id of the entity.
+     */
     public getEntityById<L extends Partial<ExtractComponentMap<M>>>(
         id: number
     ) {

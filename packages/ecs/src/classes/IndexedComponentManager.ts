@@ -127,13 +127,18 @@ export class IndexedComponentManager<T> implements ComponentManager<T> {
      * Set the value of an entity knowing it's id.
      *
      * @param id The id of the entity.
-     * @param value THe value of the entity.
+     * @param value The value of the entity.
+     * @param mutate If set to true this will automatically emit the changed event.
      */
-    public set(id: number, value: T) {
+    public set(id: number, value: T, mutate = true) {
         const index = this.idToIndex.get(id)
 
         if (index !== undefined) {
             this.components[index] = value
+
+            if (mutate) {
+                this.mutateOne(id)
+            }
         }
 
         return this

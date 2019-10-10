@@ -1,0 +1,2 @@
+-r ./test/registerTsNode.js
+./packages/*/src/**/*.test.ts
