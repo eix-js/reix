@@ -18,8 +18,8 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - name: install, bootstrap and test
-              run: |    
+              run: |
                   npm run setup:ci
-                  npm run test
+                  npm run test:root
               env:
                   CI: true
