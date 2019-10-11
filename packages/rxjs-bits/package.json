@@ -8,7 +8,14 @@
     "publishConfig": {
         "access": "public"
     },
-    "keywords": [],
+    "keywords": [
+        "rxjs",
+        "bits",
+        "reix",
+        "subject",
+        "emitter",
+        "bitfield"
+    ],
     "author": "Mateiadrielrafael <rafaeladriel11@gmail.com>",
     "homepage": "https://github.com/Mateiadrielrafael/reix",
     "license": "MIT",
