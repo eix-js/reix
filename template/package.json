@@ -1,0 +1,29 @@
+{
+    "name": "todo",
+    "version": "0.0.1",
+    "description": "TODO",
+    "main": "dist/bundle.cjs.js",
+    "module": "dist/bundle.esm.js",
+    "typings": "./dist/index.d.ts",
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [],
+    "author": "Mateiadrielrafael <rafaeladriel11@gmail.com>",
+    "homepage": "https://github.com/Mateiadrielrafael/reix",
+    "license": "MIT",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mateiadrielrafael/reix.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Mateiadrielrafael/reix/issues"
+    },
+    "dependencies": {
+        "tslib": "^1.10.0"
+    },
+    "sideEffects": false
+}
