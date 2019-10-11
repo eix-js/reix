@@ -6,3 +6,4 @@ Packages:
 
 -   [Bits](./packages/bits/README.md)
 -   [Dirty](./packages/dirty/README.md)
+-   [Ecs](./packages/ecs/README.md)
