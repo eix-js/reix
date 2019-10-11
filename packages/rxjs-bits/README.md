@@ -19,7 +19,7 @@ on$.subscribe(({ value, code }) => {
     console.log(`Fired with value ${value} and code ${code}`)
 })
 
-emitter.emit(myEventCode, 7) // Fired with value 7 and code 2
+emitter.emit(myEventCode, 2) // Fired with value 7 and code 2
 
 emit$.next({
     value: 7
