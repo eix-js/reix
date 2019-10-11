@@ -1,6 +1,6 @@
 {
     "name": "@reix/rxjs-bits",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Rxjs integration for the @reix/btis package.",
     "main": "dist/bundle.cjs.js",
     "module": "dist/bundle.esm.js",
