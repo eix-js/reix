@@ -28,8 +28,8 @@
         "exclude": "*.test.ts",
         "readme": "./README.md",
         "mode": "modules",
-        "external-modulemap": ".*/packages/([\\w\\-_]+)/",
-        "theme": "./node_modules/typedoc-neo-theme/bin/default"
+        "external-modulemap": ".*/packages/([^/]*)/",
+        "theme": "./node_modules/typedoc-dark-theme/bin/default/"
     },
     "exclude": ["./packages/**/dist/*.*"]
 }
