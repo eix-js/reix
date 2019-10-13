@@ -23,11 +23,15 @@ jobs:
                   npm run test:root
               env:
                   CI: true
-            - name: deploy to github pages
+            - name: Build docs
               run: |
-                  npm run setup:ci
-                  npm run build:all
                   npm run docs
-                  npm run deploy:docs
               env:
                   CI: true
+            - name: Deploy to github pages
+              uses: JamesIves/github-pages-deploy-action@master
+              env:
+                  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                  BASE_BRANCH: master
+                  BRANCH: gh-pages
+                  FOLDER: docs
