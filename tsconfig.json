@@ -20,5 +20,15 @@
         "./rollup.config.ts",
         "./babel.config.ts"
     ],
+    "typedocOptions": {
+        "out": "docs",
+        "excludeExternals": true,
+        "includeDeclarations": true,
+        "name": "Reix",
+        "exclude": "*.test.ts",
+        "readme": "./README.md",
+        "mode": "modules",
+        "external-modulemap": ".*/packages/([\\w\\-_]+)/"
+    },
     "exclude": ["./packages/**/dist/*.*"]
 }

@@ -13,6 +13,7 @@
         "@types/sinon": "^7.0.13",
         "chai": "^4.2.0",
         "cross-env": "^6.0.0",
+        "gh-pages": "^2.1.1",
         "lerna": "^3.16.4",
         "mocha": "^6.2.0",
         "rimraf": "^3.0.0",
@@ -24,19 +25,24 @@
         "rollup-plugin-typescript2": "^0.24.2",
         "sinon": "^7.5.0",
         "ts-node": "^8.4.1",
+        "typedoc": "^0.15.0",
+        "typedoc-plugin-external-module-map": "^1.0.0",
         "typescript": "^3.6.3"
     },
     "scripts": {
-        "prebuild": "lerna exec rimraf dist",
+        "clean": "lerna exec rimraf dist",
+        "prebuild": "npm run clean",
         "build": "lerna exec --since -- rollup -c ../../rollup.config.js",
+        "prebuild:all": "npm run clean",
         "build:all": "lerna exec -- rollup -c ../../rollup.config.js",
-        "build:watch": "lerna exec --parallel -- rollup -c ../../rollup.config.js -w",
         "test": "lerna exec -- mocha --opts ../../test/mocha.opts",
         "test:root": "mocha --opts ./test/mocha.root.opts",
         "test:changed": "lerna exec --since -- mocha --opts ../../test/mocha.opts",
-        "predeploy": "npm run build",
-        "deploy": "lerna publish",
-        "setup:ci": "npm ci && lerna bootstrap"
+        "predeploy": "npm run build && npm run docs",
+        "deploy:docs": "gh-pages -d dist",
+        "deploy": "npm run deploy:docs && lerna publish",
+        "setup:ci": "npm ci && lerna bootstrap",
+        "docs": "typedoc ./packages/*/src/**/*.ts"
     },
     "dependencies": {}
 }
