@@ -14,6 +14,8 @@ Curently this repo contains a few packages including:
 -   Rxjs integration for that event emitter
 -   Generalised computation nodes
 
+And guess what, we even have [docs](https://mateiadrielrafael.github.io/reix/) (well tehnically those are generated from comments but who cares).
+
 ## Why?
 
 I started working on this because i want to have some nice tools to use during game jams?
