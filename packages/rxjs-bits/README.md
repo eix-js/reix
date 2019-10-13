@@ -2,9 +2,17 @@
 
 > Rxjs integration for the @reix/bits package.
 
-## Usage
+## Installation
+
+```sh
+npm i @reix/rxjs-bits
+```
 
 This package requires both `rxjs` and `@reix/bits` as peer dependencies.
+
+## Usage
+
+### Example
 
 ```ts
 import { toSubjects } from '@reix/rxjs-bits'

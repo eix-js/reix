@@ -36,5 +36,9 @@
         "@reix/bits": "^0.2.2",
         "rxjs": "^6.5.3"
     },
+    "devDependencies": {
+        "@reix/bits": "^0.2.2",
+        "rxjs": "^6.5.3"
+    },
     "sideEffects": false
 }
