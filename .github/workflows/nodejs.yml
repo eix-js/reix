@@ -3,7 +3,7 @@ name: Node CI
 on: [push]
 
 jobs:
-    build:
+    test:
         runs-on: ubuntu-latest
 
         strategy:
@@ -11,7 +11,8 @@ jobs:
                 node-version: [8.x, 10.x, 12.x]
 
         steps:
-            - uses: actions/checkout@v1
+            - name: Checkout
+              uses: actions/checkout@v1
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
 
@@ -23,11 +24,29 @@ jobs:
                   npm run test:root
               env:
                   CI: true
+    deploy:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [12.x]
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v1
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: install and bootstrap
+              run: |
+                  npm run setup:ci
+              env:
+                  CI: true
             - name: Build docs
               run: |
                   npm run docs
-              env:
-                  CI: true
             - name: Deploy to github pages
               uses: JamesIves/github-pages-deploy-action@master
               env:
