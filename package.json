@@ -39,7 +39,7 @@
         "test:root": "mocha --opts ./test/mocha.root.opts",
         "test:changed": "lerna exec --since -- mocha --opts ../../test/mocha.opts",
         "predeploy": "npm run build && npm run docs",
-        "deploy:docs": "gh-pages -d dist",
+        "deploy:docs": "gh-pages -d docs",
         "deploy": "npm run deploy:docs && lerna publish",
         "setup:ci": "npm ci && lerna bootstrap",
         "docs": "typedoc ./packages/*/src/**/*.ts"
