@@ -23,3 +23,11 @@ jobs:
                   npm run test:root
               env:
                   CI: true
+            - name: deploy to github pages
+              run: |
+                  npm run setup:ci
+                  npm run build:all
+                  npm run docs
+                  npm run deploy:docs
+              env:
+                  CI: true
