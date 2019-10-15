@@ -15,21 +15,21 @@
     },
     "include": [
         "./packages/**/*.ts",
-        "./meta/**/*.ts",
         "./test/**/*.ts",
         "./rollup.config.ts",
         "./babel.config.ts"
     ],
     "typedocOptions": {
-        "out": "docs",
+        "out": "_docs",
         "excludeExternals": true,
         "includeDeclarations": true,
         "name": "Reix",
-        "exclude": "*.test.ts",
-        "readme": "./README.md",
+        "readme": "README.md",
         "mode": "modules",
         "external-modulemap": ".*/packages/([^/]*)/",
-        "theme": "./node_modules/typedoc-dark-theme/bin/default/"
+        "theme": "./node_modules/typedoc-dark-theme/bin/default/",
+        "exclude": ["**/*+(test|config).ts"],
+        "include": "**/packages/**/*.md"
     },
     "exclude": ["./packages/**/dist/*.*"]
 }

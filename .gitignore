@@ -1,7 +1,7 @@
 # Temporary directories
 node_modules
 dist
-docs
+_docs
 
 # Random folders i usually create
 sandbox

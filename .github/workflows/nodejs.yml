@@ -18,7 +18,7 @@ jobs:
 
               with:
                   node-version: ${{ matrix.node-version }}
-            - name: install, bootstrap and test
+            - name: Install, bootstrap and test
               run: |
                   npm run setup:ci
                   npm run test:root
@@ -39,9 +39,10 @@ jobs:
 
               with:
                   node-version: ${{ matrix.node-version }}
-            - name: install and bootstrap
+            - name: Install bootstrap and test
               run: |
                   npm run setup:ci
+                  npm run test:root
               env:
                   CI: true
             - name: Build docs
@@ -53,4 +54,4 @@ jobs:
                   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
                   BASE_BRANCH: master
                   BRANCH: gh-pages
-                  FOLDER: docs
+                  FOLDER: _docs

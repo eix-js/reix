@@ -41,7 +41,7 @@
         "predeploy": "npm run build && npm run docs",
         "deploy": "lerna publish",
         "setup:ci": "npm ci && lerna bootstrap",
-        "docs": "typedoc ./packages/*/src/**/*.ts"
+        "docs": "typedoc"
     },
     "dependencies": {}
 }
