@@ -26,10 +26,33 @@
         "name": "Reix",
         "readme": "README.md",
         "mode": "modules",
-        "external-modulemap": ".*/packages/([^/]*)/",
-        "theme": "./node_modules/typedoc-dark-theme/bin/default/",
-        "exclude": ["**/*+(test|config).ts"],
-        "include": "**/packages/**/*.md"
+        "external-modulemap": ".*/(?:packages|docs)/([^/]*)/",
+        "theme": "./node_modules/typedoc-neo-theme/bin/default",
+        "exclude": [
+            "**/*+(test|config).ts",
+            "**/packages/**/sandbox/*",
+            "**/packages/*/index.ts"
+        ],
+        "includes": ["docs"],
+        "outline": [
+            {
+                "Bits": {
+                    "@reix/bits": "modules/bits",
+                    "@reix/rxjs-bits": "modules/rxjs_bits",
+                    "Usage with enums": "pages/usageWithEnums",
+                    "Usage with unions": "pages/usageWithUnions",
+                    "When to use this package": "pages/whenToUseBits"
+                },
+                "Ecs": {
+                    "@reix/ecs": "modules/ecs"
+                },
+                "Dirty": {
+                    "@reix/dirty": "modules/dirty"
+                }
+            }
+        ],
+        "mdPagesSourcePath": "docs",
+        "mdPagesOutputDirName": "pages"
     },
     "exclude": ["./packages/**/dist/*.*"]
 }

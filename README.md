@@ -41,11 +41,12 @@ git clone https://github.com/Mateiadrielrafael/reix
 cd reix
 ```
 
-Then, install the dependencies and boostrap packages:
+Then, install the dependencies boostrap and apply patches:
 
 ```sh
 npm install
-./node_modules/.bin/lerna bootstrap
+npx lerna bootstrap
+npx patch-package
 ```
 
 If you are using [visual studio code](https://code.visualstudio.com/) you'll also need to install [the prettier extension](https://github.com/prettier/prettier-vscode).
@@ -94,9 +95,19 @@ npm run build
 
 ### How can i generate the docs?
 
+-   Build once:
+
 ```sh
 npm run docs
 ```
+
+-   Watch mode:
+
+```sh
+npm run docs:dev
+```
+
+and then go to [http://localhost:8080](http://localhost:8080)
 
 ### How can i create a new package?
 

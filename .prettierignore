@@ -1,0 +1,2 @@
+# Don't prettify patched modules
+node_modules
