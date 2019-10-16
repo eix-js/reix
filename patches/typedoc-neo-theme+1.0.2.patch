@@ -132,8 +132,24 @@ index 491d4a2..a241ab9 100644
 +
  </html>
 \ No newline at end of file
+diff --git a/node_modules/typedoc-neo-theme/bin/default/partials/comment.hbs b/node_modules/typedoc-neo-theme/bin/default/partials/comment.hbs
+index 06fb92e..6941cb9 100644
+--- a/node_modules/typedoc-neo-theme/bin/default/partials/comment.hbs
++++ b/node_modules/typedoc-neo-theme/bin/default/partials/comment.hbs
+@@ -19,7 +19,10 @@
+     {{~/if~}}
+     {{~#if text~}}
+         <div class="tsd-comment tsd-typography tsd-comment-text">
+-            {{#markdown}}{{{text}}}{{/markdown}}
++            {{~#if shortText~}}
++            {{else}}   
++	    {{#markdown}}{{{text}}}{{/markdown}}
++            {{~/if~}}
+             {{~#if tags~}}
+                 <dl class="tsd-comment-tags">
+                     {{~#each tags~}}
 diff --git a/node_modules/typedoc-neo-theme/bin/default/partials/navigation.hbs b/node_modules/typedoc-neo-theme/bin/default/partials/navigation.hbs
-index 9dbd86b..615673e 100644
+index 9dbd86b..6ec9d22 100644
 --- a/node_modules/typedoc-neo-theme/bin/default/partials/navigation.hbs
 +++ b/node_modules/typedoc-neo-theme/bin/default/partials/navigation.hbs
 @@ -1,26 +1,26 @@
@@ -186,7 +202,6 @@ index 9dbd86b..615673e 100644
 +{{/if}}
 +{{/if}}
  {{/if}}
-\ No newline at end of file
 diff --git a/node_modules/typedoc-neo-theme/bin/default/templates/page.hbs b/node_modules/typedoc-neo-theme/bin/default/templates/page.hbs
 new file mode 100644
 index 0000000..03bddfe

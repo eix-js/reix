@@ -17,18 +17,19 @@ export class BitFieldEmitter<T> {
 
     /**
      * @param maxBits THe max number of bits to check againts.
-     * The default is 32 bits.
      *
-     * @example ```ts
+     * The default is 32 bits:
      *
-     * // default is 32 bits:
+     * ```ts
      * const emitter = new BitFieldEmitter<void>()
      *
      * emitter.on(1 << 31, () => console.log('fired'))
      * emitter.emit(1 << 31) // fired
+     * ```
      *
+     * Passing less than the default results in some bits beeing ignored:
      *
-     * // passing less than the default:
+     * ```ts
      * const emitter = new BitFieldEmitter<void>(31)
      *
      * emitter.on(1 << 32, () => console.log('fired'))
@@ -48,12 +49,7 @@ export class BitFieldEmitter<T> {
      *
      * ### How it works:
      * This methods iterates over all the bits of the event code. When a bit of
-     * index n equal to 1 is found, this adds it to the nth set of the [[handlers]] property.
-     *
-     * @param code Bitfield containing encoding all the events to listen to.
-     * @param handler The function to call when an event fires.
-     *
-     * @returns The BitFieldEventHandler instance.
+     * index n equal to 1 is found, this adds it to the nth set of the handlers property.
      *
      * ```ts
      * const emitter = new BitFieldEmitter<void>()
@@ -65,6 +61,12 @@ export class BitFieldEmitter<T> {
      * emitter.emit(0b101) // fired, last bit is the same
      * emitter.emit(0b110) // fired, second bit is the same
      * ```
+     *
+     * @param code Bitfield containing encoding all the events to listen to.
+     * @param handler The function to call when an event fires.
+     *
+     * @returns The BitFieldEventHandler instance.
+     *
      */
     public on(
         code: number,
@@ -82,27 +84,18 @@ export class BitFieldEmitter<T> {
     }
 
     /**
-     * Removes a listener.
+     * Removes an event listener from the emitter.
      *
-     * Note: This will remove **All** the listeners for that function.
-     *
-     * @param handler The event listener to remove.
-     *
-     * @returns The BitFieldEventHandler instance.
-     *
-     * @example
+     * ```ts
      * emitter.on(0, handler)
      * emitter.emit(0, ...) // fires
      *
      * emitter.remove(handler)
      * emitter.emit(0,...) // doesn't fire
+     * ```
+     * @param handler The event listener to remove.
      *
-     * @example
-     * emitter.on(0, handler)
-     * emitter.on(1, handler)
-     *
-     * emitter.remove(handler)
-     * emitter.emit(1) // doesn't fire
+     * @returns The BitFieldEventHandler instance.
      */
     public remove(
         handler: BitFieldEventHandler<T>,
@@ -116,16 +109,19 @@ export class BitFieldEmitter<T> {
     }
 
     /**
-     * Removes all handlers from a set.
+     * Takes an iterable and removes the containing handlers from the emitter.
      *
-     * @param handlers Set with handlers to remove.
-     *
-     * @returns The BitFieldEventHandler instance.
-     *
-     * @example
+     * Nothing happens if the iterable contains duplicates but
+     * usually it's a good idea to use a set to prevent trying
+     * to remove the same element more than once :
+     * ```ts
      * const group = new Set([handler1, handler2])
      *
      * emitter.removeGroup(group)
+     * ```
+     *
+     * @param handlers Set with handlers to remove.
+     * @returns The BitFieldEventHandler instance.
      */
     public removeGroup(
         handlers: Iterable<BitFieldEventHandler<T>>,
@@ -141,7 +137,17 @@ export class BitFieldEmitter<T> {
     }
 
     /**
-     * The same as .on but calls .remove after the first trigger
+     * The same as on but calls remove after the first time the event is triggered.
+     *
+     * ```ts
+     * const emitter = new BitFieldEmitter<void>()
+     * const handler = () => console.log('fired')
+     *
+     * emitter
+     *  .on(1, handler)
+     *  .emit(1) // fired
+     *  .emit(1) // nothing
+     * ```
      *
      * @param code The bits to listen for.
      * @param handler The function to call when an event fires.
@@ -165,7 +171,28 @@ export class BitFieldEmitter<T> {
     }
 
     /**
-     * Calls all handlers which have at least 1 bit in common with the passed event code.
+     * Calls all handlers which have at least 1 bit in common with the given event code.
+     *
+     * ```ts
+     * const emitter = new BitFieldEmitter<void>()
+     *
+     * const handler00 = () => console.log('00')
+     * const handler01 = () => console.log('01')
+     * const handler10 = () => console.log('10')
+     * const handler11 = () => console.log('11')
+     *
+     * emitter
+     *  .on(0b00, handler00)
+     *  .on(0b10, handler10)
+     *  .on(0b01, handler01)
+     *  .on(0b11, handler11)
+     *
+     * emitter
+     *  .emit(0b00) // nothing gets called
+     *  .emit(0b10) // 10, 11
+     *  .emit(0b01) // 01, 11
+     *  .emit(0b11) // 01, 10, 11
+     * ```
      *
      * @param code The code to trigger the listeners with.
      * @param data The data to pass to the listeners.
@@ -173,16 +200,24 @@ export class BitFieldEmitter<T> {
      * @returns The BitFieldEventHandler instance.
      */
     public emit(code: number, data: T, maxBitsHint = this.maxBits) {
+        // All called handlers will be added here
+        // to prevent calling a handler which has more
+        // than 1 bit in common with the event code
+        // more than once.
         const called = new Set<BitFieldEventHandler<T>>()
 
         for (let bit = 0; bit < maxBitsHint; bit++) {
+            // check for overlap
             if (code & (1 << bit)) {
                 for (const handler of this.handlers[bit].values()) {
                     if (called.has(handler)) {
                         continue
                     }
 
+                    // call handler
                     handler(data, code)
+
+                    // mark handler as called
                     called.add(handler)
                 }
             }

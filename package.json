@@ -46,6 +46,7 @@
         "predeploy": "npm run build && npm run docs",
         "deploy": "lerna publish",
         "setup:ci": "npm ci && lerna bootstrap && patch-package",
+        "predocs": "rimraf _docs",
         "docs": "typedoc",
         "docs:watch": "nodemon --config ./nodemon.docs.json",
         "docs:serve": "nano-server 8080 _docs",
