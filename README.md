@@ -5,7 +5,7 @@ That means:
 
 -   No rendering engine
 -   No physics engine
--   No \[Insert thing game engines usually have here\]
+-   No \[insert thing game engines usually have here\]
 
 Curently this repo contains a few packages including:
 
@@ -18,11 +18,11 @@ And guess what, we even have [docs](https://mateiadrielrafael.github.io/reix/) (
 
 ## Why?
 
-I started working on this because i want to have some nice tools to use during game jams?
+I started working on this because I want to have some nice tools to use during game jams.
 
 ## Can i help?
 
-Ofcourse, contibutions are welcomed!
+Of course, contibutions are welcome!
 
 ## I really want this engine to have the **_X_** thingy!
 
@@ -30,7 +30,7 @@ Just open an issue and you might get your **_X_** thingy!
 
 #### Actually...
 
-You know how to add the **_X_** thingy yourself? Keep reading and i'll show you how to add things to this project by yourself!
+Do you know how to add the **_X_** thingy yourself? Keep reading and I'll show you how to add things to this project by yourself!
 
 ## How can i start working on this?
 
@@ -41,7 +41,7 @@ git clone https://github.com/Mateiadrielrafael/reix
 cd reix
 ```
 
-Then, install the dependencies boostrap and apply patches:
+Then, install the dependencies bootstrap and apply patches:
 
 ```sh
 npm install
@@ -51,7 +51,7 @@ npx patch-package
 
 If you are using [visual studio code](https://code.visualstudio.com/) you'll also need to install [the prettier extension](https://github.com/prettier/prettier-vscode).
 
-### How can i run the tests?
+### How can I run the tests?
 
 There are 3 ways of running the tests:
 
@@ -77,7 +77,7 @@ npm run test:root
 
 The second method will run the mocha cli in each package (using lerna exec), while the second runs it once in the root directory.
 
-### How can i build the packages?
+### How can I build the packages?
 
 There are 2 ways to run build the packages:
 
@@ -93,13 +93,15 @@ npm run build:all
 npm run build
 ```
 
-### How can i generate the docs?
+### How can I generate the docs?
 
 -   Build once:
 
 ```sh
 npm run docs
 ```
+
+<<<<<<< HEAD
 
 -   Watch mode:
 
@@ -111,13 +113,19 @@ and then go to [http://localhost:8080](http://localhost:8080)
 
 ### How can i create a new package?
 
+=======
+
+### How can I create a new package?
+
+> > > > > > > bc5d9a234023138baac0a7f6071c0a47d50bdeea
+
 To create a pcakge called foo run:
 
 ```sh
 ./scripts/create.sh foo
 ```
 
-### Ok, i understand everything, now can i make my first commit?
+### Ok, I understand everything, now can I make my first commit?
 
-Well yes but actually no. This package follows the [conventional commit specification](https://www.conventionalcommits.org/en/v1.0.0/).
+Well yes, but actually no. This package follows the [conventional commit specification](https://www.conventionalcommits.org/en/v1.0.0/).
 If you use [visual studio code](https://code.visualstudio.com/) you can use the [vscode-commitizen extension](https://github.com/KnisterPeter/vscode-commitizen)
