@@ -1,5 +1,5 @@
 diff --git a/node_modules/typedoc-neo-theme/bin/default/layouts/default.hbs b/node_modules/typedoc-neo-theme/bin/default/layouts/default.hbs
-index 491d4a2..a241ab9 100644
+index 491d4a2..2bd1f12 100644
 --- a/node_modules/typedoc-neo-theme/bin/default/layouts/default.hbs
 +++ b/node_modules/typedoc-neo-theme/bin/default/layouts/default.hbs
 @@ -1,75 +1,81 @@
@@ -15,7 +15,7 @@ index 491d4a2..a241ab9 100644
      <meta name="description" content="">
      <meta name="viewport" content="width=device-width, initial-scale=1">
  
-+    <base href="/">
++    {{!-- <base href="/"> --}}
 +
      <link rel="stylesheet" href="{{relativeURL "assets/css/main.css"}}">
  </head>
@@ -133,7 +133,7 @@ index 491d4a2..a241ab9 100644
  </html>
 \ No newline at end of file
 diff --git a/node_modules/typedoc-neo-theme/bin/default/partials/comment.hbs b/node_modules/typedoc-neo-theme/bin/default/partials/comment.hbs
-index 06fb92e..6941cb9 100644
+index 06fb92e..b3f5256 100644
 --- a/node_modules/typedoc-neo-theme/bin/default/partials/comment.hbs
 +++ b/node_modules/typedoc-neo-theme/bin/default/partials/comment.hbs
 @@ -19,7 +19,10 @@

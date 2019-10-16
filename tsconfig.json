@@ -37,17 +37,17 @@
         "outline": [
             {
                 "Bits": {
-                    "@reix/bits": "modules/bits",
-                    "@reix/rxjs-bits": "modules/rxjs_bits",
-                    "Usage with enums": "pages/usageWithEnums",
-                    "Usage with unions": "pages/usageWithUnions",
-                    "When to use this package": "pages/whenToUseBits"
+                    "@reix/bits": "/modules/bits",
+                    "@reix/rxjs-bits": "/modules/rxjs_bits",
+                    "Usage with enums": "/pages/usageWithEnums",
+                    "Usage with unions": "/pages/usageWithUnions",
+                    "When to use this package": "/pages/whenToUseBits"
                 },
                 "Ecs": {
-                    "@reix/ecs": "modules/ecs"
+                    "@reix/ecs": "/modules/ecs"
                 },
                 "Dirty": {
-                    "@reix/dirty": "modules/dirty"
+                    "@reix/dirty": "/modules/dirty"
                 }
             }
         ],
