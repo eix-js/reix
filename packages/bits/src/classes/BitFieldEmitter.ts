@@ -1,4 +1,4 @@
-type BitFieldEventHandler<T> = (data: T, code: number) => void
+export type BitFieldEventHandler<T> = (data: T, code: number) => void
 
 /**
  * An event emitter which uses bitFields as event codes,
