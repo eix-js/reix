@@ -1,0 +1,396 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>EntityPool |
+	Reix</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<ul class="results-priority" style="display:none">
+					</ul>
+					<a href="../index.html" class="title">Reix</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules/ecs.html">ecs</a>
+				</li>
+				<li>
+					<a href="ecs.entitypool.html">EntityPool</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation outline primary">
+				<a style="margin-left:0em" href="../globals.html">Globals</a>
+				<ul style="display:none">
+					{&quot;Bits&quot;:{&quot;@reix/bits&quot;:&quot;/modules/bits&quot;,&quot;@reix/rxjs-bits&quot;:&quot;/modules/rxjs_bits&quot;,&quot;Usage with enums&quot;:&quot;/pages/usageWithEnums&quot;,&quot;Usage with unions&quot;:&quot;/pages/usageWithUnions&quot;,&quot;When to use this package&quot;:&quot;/pages/whenToUseBits&quot;},&quot;Ecs&quot;:{&quot;@reix/ecs&quot;:&quot;/modules/ecs&quot;},&quot;Dirty&quot;:{&quot;@reix/dirty&quot;:&quot;/modules/dirty&quot;}}
+				</ul>
+			</nav>
+		</div>
+		<div class="col-7 offset-3 col-content">
+			<h1>Class EntityPool</h1>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">EntityPool</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="ecs.entitypool.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ecs.entitypool.html#generations" class="tsd-kind-icon">generations</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ecs.entitypool.html#indexmask" class="tsd-kind-icon">indexMask</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ecs.entitypool.html#options" class="tsd-kind-icon">options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ecs.entitypool.html#recycledeque" class="tsd-kind-icon">recycleDeque</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ecs.entitypool.html#alive" class="tsd-kind-icon">alive</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ecs.entitypool.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ecs.entitypool.html#destroy" class="tsd-kind-icon">destroy</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Entity<wbr>Pool<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/ecs.html#entitypooloptions" class="tsd-signature-type">EntityPoolOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ecs.entitypool.html" class="tsd-signature-type">EntityPool</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in ecs/src/classes/EntityPool.ts:38</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Class to keep track of alive entities
+									Inspired by: <a href="http://bitsquid.blogspot.com/2014/08/building-data-oriented-entity-system.html">http://bitsquid.blogspot.com/2014/08/building-data-oriented-entity-system.html</a></p>
+							</div></div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/ecs.html#entitypooloptions" class="tsd-signature-type">EntityPoolOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+										<div class="lead">
+											<p>Options to be used by the ecs.</p>
+									</div></div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ecs.entitypool.html" class="tsd-signature-type">EntityPool</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="generations" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> generations</h3>
+					<div class="tsd-signature tsd-kind-icon">generations<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ecs/src/classes/EntityPool.ts:23</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Array with the generation of all avabile entities.</p>
+					</div></div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="indexmask" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> index<wbr>Mask</h3>
+					<div class="tsd-signature tsd-kind-icon">index<wbr>Mask<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ecs/src/classes/EntityPool.ts:33</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Bitmask for getting the index from an entity id.</p>
+					</div></div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="options" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> options</h3>
+					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/ecs.html#entitypooloptions" class="tsd-signature-type">EntityPoolOptions</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ecs/src/classes/EntityPool.ts:38</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>The final set of options to be used by the ecs</p>
+					</div></div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="recycledeque" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> recycle<wbr>Deque</h3>
+					<div class="tsd-signature tsd-kind-icon">recycle<wbr>Deque<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Deque</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ecs/src/classes/EntityPool.ts:28</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Deque with all the entities ready to be reused.</p>
+					</div></div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="alive" class="tsd-anchor"></a>
+					<h3>alive</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">alive<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in ecs/src/classes/EntityPool.ts:78</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Gets the state of an entity (alive / dead).</p>
+							</div></div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">	    <p>The id of the entity.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="create" class="tsd-anchor"></a>
+					<h3>create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>allowRecycling<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in ecs/src/classes/EntityPool.ts:58</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Generates a new entity id.</p>
+							</div></div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> allowRecycling: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">	    <p>Allows recycling entities.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="destroy" class="tsd-anchor"></a>
+					<h3>destroy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in ecs/src/classes/EntityPool.ts:90</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Destroys an entity and flags it for recycling.</p>
+							</div></div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">	    <p>The id of the entity</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<!--{&quot;out&quot;:&quot;_docs&quot;,&quot;excludeExternals&quot;:true,&quot;includeDeclarations&quot;:true,&quot;name&quot;:&quot;Reix&quot;,&quot;readme&quot;:&quot;README.md&quot;,&quot;mode&quot;:1,&quot;external-modulemap&quot;:&quot;.*/(?:packages|docs)/([^/]*)/&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default&quot;,&quot;exclude&quot;:[&quot;**/*+(test|config).ts&quot;,&quot;**/packages/**/sandbox/*&quot;,&quot;**/packages/*/index.ts&quot;],&quot;includes&quot;:&quot;docs&quot;,&quot;outline&quot;:[{&quot;Bits&quot;:{&quot;@reix/bits&quot;:&quot;/modules/bits&quot;,&quot;@reix/rxjs-bits&quot;:&quot;/modules/rxjs_bits&quot;,&quot;Usage with enums&quot;:&quot;/pages/usageWithEnums&quot;,&quot;Usage with unions&quot;:&quot;/pages/usageWithUnions&quot;,&quot;When to use this package&quot;:&quot;/pages/whenToUseBits&quot;},&quot;Ecs&quot;:{&quot;@reix/ecs&quot;:&quot;/modules/ecs&quot;},&quot;Dirty&quot;:{&quot;@reix/dirty&quot;:&quot;/modules/dirty&quot;}}],&quot;mdPagesSourcePath&quot;:&quot;docs&quot;,&quot;mdPagesOutputDirName&quot;:&quot;pages&quot;}-->
+		</div>
+		<div class="col-2 col-menu secondary-menu">
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module root">
+						<a href="../enums/ecs.componentevents.html" class="tsd-kind-icon">component<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module root">
+						<a href="../enums/ecs.componentoperations.html" class="tsd-kind-icon">component<wbr>Operations</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="ecs.componentdiff.html" class="tsd-kind-icon">Component<wbr>Diff</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="ecs.ecs-1.html" class="tsd-kind-icon">Ecs</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module root">
+						<a href="ecs.entitypool.html" class="tsd-kind-icon">Entity<wbr>Pool</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="ecs.entitypool.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.entitypool.html#generations" class="tsd-kind-icon">generations</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.entitypool.html#indexmask" class="tsd-kind-icon">index<wbr>Mask</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.entitypool.html#options" class="tsd-kind-icon">options</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.entitypool.html#recycledeque" class="tsd-kind-icon">recycle<wbr>Deque</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ecs.entitypool.html#alive" class="tsd-kind-icon">alive</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ecs.entitypool.html#create" class="tsd-kind-icon">create</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ecs.entitypool.html#destroy" class="tsd-kind-icon">destroy</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="ecs.indexedcomponentmanager.html" class="tsd-kind-icon">Indexed<wbr>Component<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../interfaces/ecs.componentmanager.html" class="tsd-kind-icon">Component<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../modules/ecs.html#componentmanagermap" class="tsd-kind-icon">Component<wbr>Manager<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module root">
+						<a href="../modules/ecs.html#componentmap" class="tsd-kind-icon">Component<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../modules/ecs.html#componentoperation" class="tsd-kind-icon">Component<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../modules/ecs.html#componentsubmap" class="tsd-kind-icon">Component<wbr>Sub<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module root">
+						<a href="../modules/ecs.html#entitypooloptions" class="tsd-kind-icon">Entity<wbr>Pool<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../modules/ecs.html#extractcomponentmap" class="tsd-kind-icon">Extract<wbr>Component<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../modules/ecs.html#extractmanagertype" class="tsd-kind-icon">Extract<wbr>Manager<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module root">
+						<a href="../modules/ecs.html#componentname" class="tsd-kind-icon">component<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module root">
+						<a href="../modules/ecs.html#defaultecsoptions" class="tsd-kind-icon">default<wbr>Ecs<wbr>Options</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

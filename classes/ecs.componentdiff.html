@@ -1,0 +1,530 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ComponentDiff |
+	Reix</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<ul class="results-priority" style="display:none">
+					</ul>
+					<a href="../index.html" class="title">Reix</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules/ecs.html">ecs</a>
+				</li>
+				<li>
+					<a href="ecs.componentdiff.html">ComponentDiff</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation outline primary">
+				<a style="margin-left:0em" href="../globals.html">Globals</a>
+				<ul style="display:none">
+					{&quot;Bits&quot;:{&quot;@reix/bits&quot;:&quot;/modules/bits&quot;,&quot;@reix/rxjs-bits&quot;:&quot;/modules/rxjs_bits&quot;,&quot;Usage with enums&quot;:&quot;/pages/usageWithEnums&quot;,&quot;Usage with unions&quot;:&quot;/pages/usageWithUnions&quot;,&quot;When to use this package&quot;:&quot;/pages/whenToUseBits&quot;},&quot;Ecs&quot;:{&quot;@reix/ecs&quot;:&quot;/modules/ecs&quot;},&quot;Dirty&quot;:{&quot;@reix/dirty&quot;:&quot;/modules/dirty&quot;}}
+				</ul>
+			</nav>
+		</div>
+		<div class="col-7 offset-3 col-content">
+			<h1>Class ComponentDiff&lt;T&gt;</h1>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T</h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ComponentDiff</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="ecs.componentdiff.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ecs.componentdiff.html#added" class="tsd-kind-icon">added</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ecs.componentdiff.html#changed" class="tsd-kind-icon">changed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ecs.componentdiff.html#removed" class="tsd-kind-icon">removed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ecs.componentdiff.html#source" class="tsd-kind-icon">source</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ecs.componentdiff.html#verboose" class="tsd-kind-icon">verboose</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ecs.componentdiff.html#volatilehandlers" class="tsd-kind-icon">volatileHandlers</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ecs.componentdiff.html#addentity" class="tsd-kind-icon">addEntity</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ecs.componentdiff.html#clean" class="tsd-kind-icon">clean</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ecs.componentdiff.html#collect" class="tsd-kind-icon">collect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ecs.componentdiff.html#dispose" class="tsd-kind-icon">dispose</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ecs.componentdiff.html#mutateentity" class="tsd-kind-icon">mutateEntity</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ecs.componentdiff.html#removeentity" class="tsd-kind-icon">removeEntity</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Component<wbr>Diff<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><a href="../interfaces/ecs.componentmanager.html" class="tsd-signature-type">ComponentManager</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, verboose<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ecs.componentdiff.html" class="tsd-signature-type">ComponentDiff</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in ecs/src/classes/ComponentDiff.ts:26</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Low level class to get the diff of a ComponentManager.</p>
+							</div></div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>source: <a href="../interfaces/ecs.componentmanager.html" class="tsd-signature-type">ComponentManager</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+										<div class="lead">
+											<p>The ComponentManager to get the diff of.</p>
+									</div></div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> verboose: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+										<div class="lead">
+											<p>Specifies if errors should be thrown when somehing is somewhat wrong.</p>
+									</div></div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ecs.componentdiff.html" class="tsd-signature-type">ComponentDiff</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="added" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> added</h3>
+					<div class="tsd-signature tsd-kind-icon">added<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Set&lt;number&gt;()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ecs/src/classes/ComponentDiff.ts:16</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Added entities since the last reset.</p>
+					</div></div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="changed" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> changed</h3>
+					<div class="tsd-signature tsd-kind-icon">changed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Set&lt;number&gt;()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ecs/src/classes/ComponentDiff.ts:21</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Changed entities since the last reset.</p>
+					</div></div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="removed" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> removed</h3>
+					<div class="tsd-signature tsd-kind-icon">removed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Set&lt;number&gt;()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ecs/src/classes/ComponentDiff.ts:26</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Deleted entities since the alst reset.</p>
+					</div></div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="source" class="tsd-anchor"></a>
+					<h3>source</h3>
+					<div class="tsd-signature tsd-kind-icon">source<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ecs.componentmanager.html" class="tsd-signature-type">ComponentManager</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ecs/src/classes/ComponentDiff.ts:35</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>The ComponentManager to get the diff of.</p>
+					</div></div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="verboose" class="tsd-anchor"></a>
+					<h3>verboose</h3>
+					<div class="tsd-signature tsd-kind-icon">verboose<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ecs/src/classes/ComponentDiff.ts:36</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Specifies if errors should be thrown when somehing is somewhat wrong.</p>
+					</div></div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="volatilehandlers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> volatile<wbr>Handlers</h3>
+					<div class="tsd-signature tsd-kind-icon">volatile<wbr>Handlers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Set&lt;BitFieldEventHandler&lt;number&gt;&gt;()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ecs/src/classes/ComponentDiff.ts:11</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Handlers to be removed on dispose.</p>
+					</div></div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="addentity" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> add<wbr>Entity</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Entity<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in ecs/src/classes/ComponentDiff.ts:79</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Add an entity to the diff.</p>
+							</div></div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">	    <p>The id to add.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="clean" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> clean</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">clean<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in ecs/src/classes/ComponentDiff.ts:56</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Clean inner sets.</p>
+							</div></div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="collect" class="tsd-anchor"></a>
+					<h3>collect</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">collect<span class="tsd-signature-symbol">(</span>reset<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in ecs/src/classes/ComponentDiff.ts:122</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Collet the diff accumulated. Pass &quot;false&quot; as the first argument to skip reseting.
+									(Next diff will be calculated from the last reset.)</p>
+							</div></div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> reset: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">	    <p>If set to true the inner state will automatically reset.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="dispose" class="tsd-anchor"></a>
+					<h3>dispose</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">dispose<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in ecs/src/classes/ComponentDiff.ts:67</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Remove handlers and clean everything.</p>
+							</div></div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="mutateentity" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> mutate<wbr>Entity</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">mutate<wbr>Entity<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in ecs/src/classes/ComponentDiff.ts:110</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Mark an entity as changed.</p>
+							</div></div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">	    <p>The id to mark as mutated.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="removeentity" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> remove<wbr>Entity</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Entity<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in ecs/src/classes/ComponentDiff.ts:93</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Remove an entity from the diff.</p>
+							</div></div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">	    <p>The id to remove.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<!--{&quot;out&quot;:&quot;_docs&quot;,&quot;excludeExternals&quot;:true,&quot;includeDeclarations&quot;:true,&quot;name&quot;:&quot;Reix&quot;,&quot;readme&quot;:&quot;README.md&quot;,&quot;mode&quot;:1,&quot;external-modulemap&quot;:&quot;.*/(?:packages|docs)/([^/]*)/&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default&quot;,&quot;exclude&quot;:[&quot;**/*+(test|config).ts&quot;,&quot;**/packages/**/sandbox/*&quot;,&quot;**/packages/*/index.ts&quot;],&quot;includes&quot;:&quot;docs&quot;,&quot;outline&quot;:[{&quot;Bits&quot;:{&quot;@reix/bits&quot;:&quot;/modules/bits&quot;,&quot;@reix/rxjs-bits&quot;:&quot;/modules/rxjs_bits&quot;,&quot;Usage with enums&quot;:&quot;/pages/usageWithEnums&quot;,&quot;Usage with unions&quot;:&quot;/pages/usageWithUnions&quot;,&quot;When to use this package&quot;:&quot;/pages/whenToUseBits&quot;},&quot;Ecs&quot;:{&quot;@reix/ecs&quot;:&quot;/modules/ecs&quot;},&quot;Dirty&quot;:{&quot;@reix/dirty&quot;:&quot;/modules/dirty&quot;}}],&quot;mdPagesSourcePath&quot;:&quot;docs&quot;,&quot;mdPagesOutputDirName&quot;:&quot;pages&quot;}-->
+		</div>
+		<div class="col-2 col-menu secondary-menu">
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module root">
+						<a href="../enums/ecs.componentevents.html" class="tsd-kind-icon">component<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module root">
+						<a href="../enums/ecs.componentoperations.html" class="tsd-kind-icon">component<wbr>Operations</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="ecs.componentdiff.html" class="tsd-kind-icon">Component<wbr>Diff</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="ecs.componentdiff.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.componentdiff.html#added" class="tsd-kind-icon">added</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.componentdiff.html#changed" class="tsd-kind-icon">changed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.componentdiff.html#removed" class="tsd-kind-icon">removed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ecs.componentdiff.html#source" class="tsd-kind-icon">source</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ecs.componentdiff.html#verboose" class="tsd-kind-icon">verboose</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.componentdiff.html#volatilehandlers" class="tsd-kind-icon">volatile<wbr>Handlers</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.componentdiff.html#addentity" class="tsd-kind-icon">add<wbr>Entity</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.componentdiff.html#clean" class="tsd-kind-icon">clean</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ecs.componentdiff.html#collect" class="tsd-kind-icon">collect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ecs.componentdiff.html#dispose" class="tsd-kind-icon">dispose</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.componentdiff.html#mutateentity" class="tsd-kind-icon">mutate<wbr>Entity</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ecs.componentdiff.html#removeentity" class="tsd-kind-icon">remove<wbr>Entity</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="ecs.ecs-1.html" class="tsd-kind-icon">Ecs</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module root">
+						<a href="ecs.entitypool.html" class="tsd-kind-icon">Entity<wbr>Pool</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="ecs.indexedcomponentmanager.html" class="tsd-kind-icon">Indexed<wbr>Component<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../interfaces/ecs.componentmanager.html" class="tsd-kind-icon">Component<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../modules/ecs.html#componentmanagermap" class="tsd-kind-icon">Component<wbr>Manager<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module root">
+						<a href="../modules/ecs.html#componentmap" class="tsd-kind-icon">Component<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../modules/ecs.html#componentoperation" class="tsd-kind-icon">Component<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../modules/ecs.html#componentsubmap" class="tsd-kind-icon">Component<wbr>Sub<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module root">
+						<a href="../modules/ecs.html#entitypooloptions" class="tsd-kind-icon">Entity<wbr>Pool<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../modules/ecs.html#extractcomponentmap" class="tsd-kind-icon">Extract<wbr>Component<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter root">
+						<a href="../modules/ecs.html#extractmanagertype" class="tsd-kind-icon">Extract<wbr>Manager<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module root">
+						<a href="../modules/ecs.html#componentname" class="tsd-kind-icon">component<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module root">
+						<a href="../modules/ecs.html#defaultecsoptions" class="tsd-kind-icon">default<wbr>Ecs<wbr>Options</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

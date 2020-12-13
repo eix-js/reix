@@ -1,0 +1,211 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Reix</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<ul class="results-priority" style="display:none">
+					</ul>
+					<a href="index.html" class="title">Reix</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+			</ul>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation outline primary">
+				<a style="margin-left:0em" href="globals.html">Globals</a>
+				<ul style="display:none">
+					{&quot;Bits&quot;:{&quot;@reix/bits&quot;:&quot;/modules/bits&quot;,&quot;@reix/rxjs-bits&quot;:&quot;/modules/rxjs_bits&quot;,&quot;Usage with enums&quot;:&quot;/pages/usageWithEnums&quot;,&quot;Usage with unions&quot;:&quot;/pages/usageWithUnions&quot;,&quot;When to use this package&quot;:&quot;/pages/whenToUseBits&quot;},&quot;Ecs&quot;:{&quot;@reix/ecs&quot;:&quot;/modules/ecs&quot;},&quot;Dirty&quot;:{&quot;@reix/dirty&quot;:&quot;/modules/dirty&quot;}}
+				</ul>
+			</nav>
+		</div>
+		<div class="col-7 offset-3 col-content">
+			<h1> Reix</h1>
+			<div class="tsd-panel tsd-typography">
+				<a href="#reix" id="reix" style="color: inherit; text-decoration: none;">
+					<h1>Reix</h1>
+				</a>
+				<p>Reix is a set of low level &amp; typesafe &amp; efficient game-engine utils.
+				That means:</p>
+				<ul>
+					<li>No rendering engine</li>
+					<li>No physics engine</li>
+					<li>No [insert thing game engines usually have here]</li>
+				</ul>
+				<p>Curently this repo contains a few packages including:</p>
+				<ul>
+					<li>A typesafe entity component system</li>
+					<li>A bitfield based event emitter</li>
+					<li>Rxjs integration for that event emitter</li>
+					<li>Generalised computation nodes</li>
+				</ul>
+				<p>And guess what, we even have <a href="https://mateiadrielrafael.github.io/reix/">docs</a> (well tehnically those are generated from comments but who cares).</p>
+				<a href="#why" id="why" style="color: inherit; text-decoration: none;">
+					<h2>Why?</h2>
+				</a>
+				<p>I started working on this because I want to have some nice tools to use during game jams.</p>
+				<a href="#can-i-help" id="can-i-help" style="color: inherit; text-decoration: none;">
+					<h2>Can i help?</h2>
+				</a>
+				<p>Of course, contibutions are welcome!</p>
+				<a href="#i-really-want-this-engine-to-have-the-strongemxemstrong-thingy" id="i-really-want-this-engine-to-have-the-strongemxemstrong-thingy" style="color: inherit; text-decoration: none;">
+					<h2>I really want this engine to have the <strong><em>X</em></strong> thingy!</h2>
+				</a>
+				<p>Just open an issue and you might get your <strong><em>X</em></strong> thingy!</p>
+				<a href="#actually" id="actually" style="color: inherit; text-decoration: none;">
+					<h4>Actually...</h4>
+				</a>
+				<p>Do you know how to add the <strong><em>X</em></strong> thingy yourself? Keep reading and I&#39;ll show you how to add things to this project by yourself!</p>
+				<a href="#how-can-i-start-working-on-this" id="how-can-i-start-working-on-this" style="color: inherit; text-decoration: none;">
+					<h2>How can i start working on this?</h2>
+				</a>
+				<p>First, clone this repo and cd into the created directory:</p>
+				<pre><code class="language-sh">git <span class="hljs-built_in">clone</span> https://github.com/Mateiadrielrafael/reix
+<span class="hljs-built_in">cd</span> reix</code></pre>
+				<p>Then, install the dependencies bootstrap and apply patches:</p>
+				<pre><code class="language-sh">npm install
+npx lerna bootstrap
+npx patch-package</code></pre>
+				<p>If you are using <a href="https://code.visualstudio.com/">visual studio code</a> you&#39;ll also need to install <a href="https://github.com/prettier/prettier-vscode">the prettier extension</a>.</p>
+				<a href="#how-can-i-run-the-tests" id="how-can-i-run-the-tests" style="color: inherit; text-decoration: none;">
+					<h3>How can I run the tests?</h3>
+				</a>
+				<p>There are 3 ways of running the tests:</p>
+				<ol>
+					<li>Run the tests on the chanegd packages:</li>
+				</ol>
+				<pre><code class="language-sh">npm run <span class="hljs-built_in">test</span>:changed</code></pre>
+				<ol start="2">
+					<li>Run all tests:</li>
+				</ol>
+				<pre><code class="language-sh">npm run <span class="hljs-built_in">test</span></code></pre>
+				<ol start="3">
+					<li>Run all tests in the same mocha call:</li>
+				</ol>
+				<pre><code class="language-sh">npm run <span class="hljs-built_in">test</span>:root</code></pre>
+				<a href="#what39s-the-difference-between-2-and-3" id="what39s-the-difference-between-2-and-3" style="color: inherit; text-decoration: none;">
+					<h4>What&#39;s the difference between 2 and 3?</h4>
+				</a>
+				<p>The second method will run the mocha cli in each package (using lerna exec), while the second runs it once in the root directory.</p>
+				<a href="#how-can-i-build-the-packages" id="how-can-i-build-the-packages" style="color: inherit; text-decoration: none;">
+					<h3>How can I build the packages?</h3>
+				</a>
+				<p>There are 2 ways to run build the packages:</p>
+				<ol>
+					<li>Build all of them:</li>
+				</ol>
+				<pre><code class="language-sh">npm run build:all</code></pre>
+				<ol start="2">
+					<li>Build what changed</li>
+				</ol>
+				<pre><code class="language-sh">npm run build</code></pre>
+				<a href="#how-can-i-generate-the-docs" id="how-can-i-generate-the-docs" style="color: inherit; text-decoration: none;">
+					<h3>How can I generate the docs?</h3>
+				</a>
+				<ul>
+					<li>Build once:</li>
+				</ul>
+				<pre><code class="language-sh">npm run docs</code></pre>
+				<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+				<ul>
+					<li>Watch mode:</li>
+				</ul>
+				<pre><code class="language-sh">npm run docs:dev</code></pre>
+				<p>and then go to <a href="http://localhost:8080">http://localhost:8080</a></p>
+				<a href="#how-can-i-create-a-new-package" id="how-can-i-create-a-new-package" style="color: inherit; text-decoration: none;">
+					<h3>How can i create a new package?</h3>
+				</a>
+				<p>=======</p>
+				<a href="#how-can-i-create-a-new-package-1" id="how-can-i-create-a-new-package-1" style="color: inherit; text-decoration: none;">
+					<h3>How can I create a new package?</h3>
+				</a>
+				<blockquote>
+					<blockquote>
+						<blockquote>
+							<blockquote>
+								<blockquote>
+									<blockquote>
+										<blockquote>
+											<p>bc5d9a234023138baac0a7f6071c0a47d50bdeea</p>
+										</blockquote>
+									</blockquote>
+								</blockquote>
+							</blockquote>
+						</blockquote>
+					</blockquote>
+				</blockquote>
+				<p>To create a pcakge called foo run:</p>
+				<pre><code class="language-sh">./scripts/create.sh foo</code></pre>
+				<a href="#ok-i-understand-everything-now-can-i-make-my-first-commit" id="ok-i-understand-everything-now-can-i-make-my-first-commit" style="color: inherit; text-decoration: none;">
+					<h3>Ok, I understand everything, now can I make my first commit?</h3>
+				</a>
+				<p>Well yes, but actually no. This package follows the <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commit specification</a>.
+				If you use <a href="https://code.visualstudio.com/">visual studio code</a> you can use the <a href="https://github.com/KnisterPeter/vscode-commitizen">vscode-commitizen extension</a></p>
+			</div>
+			<!--{&quot;out&quot;:&quot;_docs&quot;,&quot;excludeExternals&quot;:true,&quot;includeDeclarations&quot;:true,&quot;name&quot;:&quot;Reix&quot;,&quot;readme&quot;:&quot;README.md&quot;,&quot;mode&quot;:1,&quot;external-modulemap&quot;:&quot;.*/(?:packages|docs)/([^/]*)/&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default&quot;,&quot;exclude&quot;:[&quot;**/*+(test|config).ts&quot;,&quot;**/packages/**/sandbox/*&quot;,&quot;**/packages/*/index.ts&quot;],&quot;includes&quot;:&quot;docs&quot;,&quot;outline&quot;:[{&quot;Bits&quot;:{&quot;@reix/bits&quot;:&quot;/modules/bits&quot;,&quot;@reix/rxjs-bits&quot;:&quot;/modules/rxjs_bits&quot;,&quot;Usage with enums&quot;:&quot;/pages/usageWithEnums&quot;,&quot;Usage with unions&quot;:&quot;/pages/usageWithUnions&quot;,&quot;When to use this package&quot;:&quot;/pages/whenToUseBits&quot;},&quot;Ecs&quot;:{&quot;@reix/ecs&quot;:&quot;/modules/ecs&quot;},&quot;Dirty&quot;:{&quot;@reix/dirty&quot;:&quot;/modules/dirty&quot;}}],&quot;mdPagesSourcePath&quot;:&quot;docs&quot;,&quot;mdPagesOutputDirName&quot;:&quot;pages&quot;}-->
+		</div>
+		<div class="col-2 col-menu secondary-menu">
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
